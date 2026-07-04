@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://clnpmk5pcvcey"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfv1e"]
+albedo_color = Color(0.56886536, 0.1697199, 0.03304388, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wt16y"]
+material = SubResource("StandardMaterial3D_sfv1e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_symyc"]
+albedo_color = Color(0.2996636, 0.6069474, 0.71530104, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_symyc"]
+material = SubResource("StandardMaterial3D_symyc")
+radius = 0.1821289
+height = 0.7294922
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sfv1e"]
+
+[node name="Player" type="CharacterBody3D" unique_id=569843570]
+
+[node name="Armature" type="Node3D" parent="." unique_id=1999973379]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature" unique_id=1562906084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_wt16y")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Armature" unique_id=1133977251]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 1.47418, -0.4022184)
+mesh = SubResource("CapsuleMesh_symyc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=844640977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_sfv1e")
+
+[node name="Components" type="Node" parent="." unique_id=881105729]
+
+[node name="States" type="Node" parent="." unique_id=912340703]
+
+[node name="CameraController" type="Node3D" parent="." unique_id=1191491835]
+
+[node name="Camera3D" type="Camera3D" parent="CameraController" unique_id=2094901537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4639134, -0.59305453)

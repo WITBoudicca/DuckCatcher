@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://u55hv8nhlpp4"]
+
+[ext_resource type="Script" uid="uid://c1oo7h1d8uxuf" path="res://globals/audio_manager.gd" id="1_siwhy"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_dwr6l"]
+polyphony = 16
+
+[node name="Audio" type="Node" unique_id=1467223168]
+process_mode = 3
+script = ExtResource("1_siwhy")
+
+[node name="Ambience1" type="AudioStreamPlayer" parent="." unique_id=1541862854]
+
+[node name="Ambience2" type="AudioStreamPlayer" parent="." unique_id=383446508]
+
+[node name="Ui" type="AudioStreamPlayer" parent="." unique_id=1863537698]
+stream = SubResource("AudioStreamPolyphonic_dwr6l")
