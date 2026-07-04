@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bpd74myqn03c1"]
 
 [ext_resource type="Texture2D" uid="uid://2mfveho8ib0n" path="res://assets/prototypes/Proto Wall.png" id="1_6xmxd"]
-[ext_resource type="PackedScene" uid="uid://clnpmk5pcvcey" path="res://entities/player/player.tscn" id="2_tcf2h"]
+[ext_resource type="PackedScene" uid="uid://bjh8onph4gvse" path="res://entities/duckling/duckling.tscn" id="2_4717r"]
+[ext_resource type="PackedScene" uid="uid://clnpmk5pcvcey" path="res://entities/player/player_controller.tscn" id="2_tcf2h"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_wt16y"]
 
@@ -29,11 +30,14 @@ glow_enabled = true
 [node name="PlayerEntity" type="Node3D" parent="Entities" unique_id=1796305204]
 
 [node name="Player" parent="Entities/PlayerEntity" unique_id=957528218 instance=ExtResource("2_tcf2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8052499, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23666286, 0)
 
 [node name="DucklingEntity" type="Node3D" parent="Entities" unique_id=1813489295]
 
-[node name="NpcEntity" type="Node3D" parent="Entities" unique_id=1477069671]
+[node name="Duckling" parent="Entities/DucklingEntity" unique_id=192723076 instance=ExtResource("2_4717r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033987045, 0.17929244, -3.7306452)
+
+[node name="NPCEntity" type="Node3D" parent="Entities" unique_id=1477069671]
 
 [node name="Lighting" type="Node3D" parent="." unique_id=591190226]
 
@@ -44,13 +48,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 navigation_mesh = SubResource("NavigationMesh_wt16y")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry/NavigationRegion3D" unique_id=1769765262]
+use_collision = true
+collision_mask = 0
 size = Vector3(48, 1, 48)
+material = SubResource("StandardMaterial3D_g312j")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Geometry/NavigationRegion3D" unique_id=2017364505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.8449707, -20.418945)
+use_collision = true
+collision_mask = 0
+size = Vector3(48, 14.689941, 7.1621094)
 material = SubResource("StandardMaterial3D_g312j")
 
 [node name="Environment" type="Node3D" parent="." unique_id=792366660]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1728414199]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1728414199]
 environment = SubResource("Environment_4717r")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1884841855]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment" unique_id=1884841855]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 25.347557, 22.855164, -0.073916435)

@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://clnpmk5pcvcey"]
+
+[ext_resource type="Script" uid="uid://bcf28hmbnv8vr" path="res://entities/player/player_controller.gd" id="1_symyc"]
+[ext_resource type="Script" uid="uid://sri6e6msbweu" path="res://entities/player/components/mouse_capture.gd" id="2_abrql"]
+[ext_resource type="Script" uid="uid://dsjt8prft7hdh" path="res://entities/player/state_machine.gd" id="3_43phm"]
+[ext_resource type="Script" uid="uid://wpwtr3idp2my" path="res://entities/player/components/camera_controller.gd" id="3_sglur"]
+[ext_resource type="Script" uid="uid://d2kcdji42b23" path="res://entities/player/states/movement states/idle_state.gd" id="4_d1k4n"]
+[ext_resource type="Script" uid="uid://1ckbjwx2m30l" path="res://entities/player/states/movement states/walk_state.gd" id="5_eg50i"]
+[ext_resource type="Script" uid="uid://v2snv0grwqxd" path="res://entities/player/states/movement states/sprint_state.gd" id="6_qpkgk"]
+[ext_resource type="Script" uid="uid://0h1yy3lbgudr" path="res://entities/player/states/movement states/jump_state.gd" id="7_t3d2v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43phm"]
+albedo_color = Color(0.56886536, 0.1697199, 0.03304388, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wt16y"]
+material = SubResource("StandardMaterial3D_43phm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rs2e6"]
+albedo_color = Color(0.2996636, 0.6069474, 0.71530104, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_symyc"]
+material = SubResource("StandardMaterial3D_rs2e6")
+radius = 0.1821289
+height = 0.7294922
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d1k4n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sfv1e"]
+radius = 0.44677734
+height = 0.8935547
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4717r"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_abrql"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 20.0
+dof_blur_far_transition = 50.0
+
+[node name="PlayerController" type="CharacterBody3D" unique_id=569843570 node_paths=PackedStringArray("idle_state", "walk_state", "sprint_state", "jump_state", "interact_ray")]
+collision_layer = 2
+script = ExtResource("1_symyc")
+idle_state = NodePath("StateMachine/IdleState")
+walk_state = NodePath("StateMachine/WalkState")
+sprint_state = NodePath("StateMachine/SprintState")
+jump_state = NodePath("StateMachine/JumpState")
+interact_ray = NodePath("CameraController/SpringArm3D/Camera3D/InteractionRayCast3D")
+
+[node name="Armature" type="Node3D" parent="." unique_id=1999973379]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature" unique_id=1562906084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+layers = 2
+mesh = SubResource("CapsuleMesh_wt16y")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Armature" unique_id=1133977251]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 1.47418, -0.4022184)
+layers = 2
+mesh = SubResource("CapsuleMesh_symyc")
+
+[node name="StandingCollision" type="CollisionShape3D" parent="." unique_id=844640977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_d1k4n")
+
+[node name="ShrinkedCollision" type="CollisionShape3D" parent="." unique_id=886425023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44677734, 0)
+shape = SubResource("CapsuleShape3D_sfv1e")
+
+[node name="Components" type="Node" parent="." unique_id=881105729]
+
+[node name="MouseCapture" type="Node" parent="Components" unique_id=1446732188]
+script = ExtResource("2_abrql")
+
+[node name="StateMachine" type="Node" parent="." unique_id=912340703 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_43phm")
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1632749366]
+script = ExtResource("4_d1k4n")
+metadata/_custom_type_script = "uid://d2kcdji42b23"
+
+[node name="WalkState" type="Node" parent="StateMachine" unique_id=1375865298]
+script = ExtResource("5_eg50i")
+metadata/_custom_type_script = "uid://1ckbjwx2m30l"
+
+[node name="SprintState" type="Node" parent="StateMachine" unique_id=1269423293]
+script = ExtResource("6_qpkgk")
+metadata/_custom_type_script = "uid://v2snv0grwqxd"
+
+[node name="JumpState" type="Node" parent="StateMachine" unique_id=538580751]
+script = ExtResource("7_t3d2v")
+metadata/_custom_type_script = "uid://0h1yy3lbgudr"
+
+[node name="CameraController" type="Node3D" parent="." unique_id=1191491835 node_paths=PackedStringArray("player_controller", "component_mouse_capture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("3_sglur")
+player_controller = NodePath("..")
+component_mouse_capture = NodePath("../Components/MouseCapture")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraController" unique_id=173266216]
+shape = SubResource("SphereShape3D_4717r")
+spring_length = 0.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D" unique_id=2094901537]
+cull_mask = 1048573
+attributes = SubResource("CameraAttributesPractical_abrql")
+
+[node name="InteractionRayCast3D" type="RayCast3D" parent="CameraController/SpringArm3D/Camera3D" unique_id=86940088]

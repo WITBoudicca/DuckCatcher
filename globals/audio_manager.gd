@@ -27,6 +27,7 @@ var _ambience_tweens: Dictionary = {}
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	ui.play()
 	_ui_audio_player = ui.get_stream_playback()
 	_init_pool_3d()

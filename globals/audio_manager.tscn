@@ -6,7 +6,6 @@
 polyphony = 16
 
 [node name="Audio" type="Node" unique_id=1467223168]
-process_mode = 3
 script = ExtResource("1_siwhy")
 
 [node name="Ambience1" type="AudioStreamPlayer" parent="." unique_id=1541862854]
