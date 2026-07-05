@@ -1,16 +1,12 @@
 class_name PlayerController
 extends CharacterBody3D
 
+#region Exports
 @export var debug: bool = false
 
-@export_group("Movement")
-@export var walk_speed: float = 5.0
-@export var sprint_speed: float = 8.0
-@export var acceleration: float = 0.15
-@export var deceleration: float = 0.25
-
-@export_group("Jump")
-@export var jump_velocity: float = 4.5
+@export_category("References")
+@export_group("camera")
+@export var camera_effects: CameraEffects 
 
 @export_group("States")
 @export var idle_state: State
@@ -22,45 +18,116 @@ extends CharacterBody3D
 @export var interact_ray: RayCast3D
 @export var interact_distance: float = 3.0
 
+@export_category("Player Settings")
+@export_group("Movement")
+@export var walk_speed: float = 5.0
+@export var sprint_speed: float = 9.0
+@export var acceleration: float = 0.15
+@export var deceleration: float = 0.35
+
+@export_group("Jump")
+@export var jump_velocity: float = 4.5
+@export var fall_velocity_threshold: float = -5.0
+
+@export_group("Stamina")
+@export var max_stamina: float = 100.0
+@export var stamina_drain_rate: float = 15.0   # per second while sprinting
+@export var stamina_regen_rate: float = 15.0   # per second while regenerating
+@export var stamina_regen_delay: float = 0.75  # seconds after last drain before regen starts
+@export var min_stamina_to_sprint: float = 30.0 # must regen past this to sprint again once exhausted
+#endregion
+
+#region Onready / State
 @onready var state_machine: StateMachine = $StateMachine
+#endregion
 
+#region Stamina State (internal)
+var current_stamina: float
+var _regen_timer: float = 0.0
+var _exhausted: bool = false
+var _draining_this_frame: bool = false
+#endregion
 
+#region Engine Callbacks
 func _ready() -> void:
+	current_stamina = max_stamina
 	state_machine.init(self)
+	SignalBus.stamina_changed.emit(current_stamina, max_stamina)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
+	_draining_this_frame = false
 	state_machine.physics_update(delta)
+	
+	if not _draining_this_frame:
+		_regen_stamina(delta)
+	
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.handle_input(event)
-
+	
 	if event.is_action_pressed("interact"):
 		try_interact()
 	if event.is_action_pressed("catch"):
 		try_catch()
+#endregion
 
+#region Movement
 func apply_movement(input_dir: Vector2, target_speed: float) -> void:
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var current_velocity = Vector2(velocity.x, velocity.z)
-
+	
 	if direction:
 		current_velocity = current_velocity.lerp(Vector2(direction.x, direction.z) * target_speed, acceleration)
 	else:
 		current_velocity = current_velocity.move_toward(Vector2.ZERO, deceleration)
-
+	
 	velocity.x = current_velocity.x
 	velocity.z = current_velocity.y
 
-func apply_jump() -> void:
-	velocity.y = jump_velocity
-
 func update_rotation(rotation_input) -> void:
 	global_transform.basis = Basis.from_euler(rotation_input)
+#endregion
 
+#region Jump
+func apply_jump() -> void:
+	velocity.y = jump_velocity
+#endregion
+
+#region Stamina
+func drain_stamina(amount: float) -> void:
+	_draining_this_frame = true
+	_regen_timer = 0.0
+	
+	current_stamina = max(current_stamina - amount, 0.0)
+	if current_stamina <= 0.0:
+		_exhausted = true
+	
+	SignalBus.stamina_changed.emit(current_stamina, max_stamina)
+
+func _regen_stamina(delta: float) -> void:
+	if current_stamina >= max_stamina:
+		return
+	
+	_regen_timer += delta
+	if _regen_timer < stamina_regen_delay:
+		return
+	
+	current_stamina = min(current_stamina + stamina_regen_rate * delta, max_stamina)
+	
+	if _exhausted and current_stamina >= min_stamina_to_sprint:
+		_exhausted = false
+	
+	SignalBus.stamina_changed.emit(current_stamina, max_stamina)
+
+func can_sprint() -> bool:
+	return not _exhausted and current_stamina > 0.0
+#endregion
+
+#region Interaction
 func try_interact() -> void:
 	_raycast_call("interact")
 
@@ -73,3 +140,4 @@ func _raycast_call(method_name: String) -> void:
 	var target = interact_ray.get_collider()
 	if target and target.has_method(method_name):
 		target.call(method_name, self)
+#endregion

@@ -36,8 +36,8 @@ gdscript/warnings/unused_signal=0
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/borderless=true
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [file_customization]
 
@@ -109,7 +109,7 @@ fullscreen={
 3d_physics/layer_1="Terrain"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Duckling"
-3d_physics/layer_4="Objects"
+3d_physics/layer_4="Interactables"
 
 [physics]
 
@@ -118,3 +118,4 @@ fullscreen={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+anti_aliasing/quality/screen_space_aa=1

@@ -12,8 +12,6 @@ uv1_triplanar = true
 uv2_world_triplanar = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6xmxd"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
 [sub_resource type="Sky" id="Sky_tcf2h"]
 sky_material = SubResource("ProceduralSkyMaterial_6xmxd")
@@ -21,7 +19,11 @@ sky_material = SubResource("ProceduralSkyMaterial_6xmxd")
 [sub_resource type="Environment" id="Environment_4717r"]
 background_mode = 2
 sky = SubResource("Sky_tcf2h")
+tonemap_mode = 3
 glow_enabled = true
+glow_normalized = true
+glow_strength = 1.1
+glow_bloom = 0.5
 
 [node name="World" type="Node3D" unique_id=1123708402]
 
@@ -48,17 +50,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 navigation_mesh = SubResource("NavigationMesh_wt16y")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry/NavigationRegion3D" unique_id=1769765262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
 use_collision = true
 collision_mask = 0
-size = Vector3(48, 1, 48)
+size = Vector3(48, 1, 82)
 material = SubResource("StandardMaterial3D_g312j")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Geometry/NavigationRegion3D" unique_id=2017364505]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.8449707, -20.418945)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.0662498, 6.8449707, -34.43375)
 use_collision = true
 collision_mask = 0
-size = Vector3(48, 14.689941, 7.1621094)
+size = Vector3(48, 14.689941, 1)
 material = SubResource("StandardMaterial3D_g312j")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Geometry/NavigationRegion3D" unique_id=1920284557]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0662518, 6.8449707, -34.43375)
+use_collision = true
+collision_mask = 0
+size = Vector3(48, 14.689941, 1)
+material = SubResource("StandardMaterial3D_g312j")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Geometry/NavigationRegion3D" unique_id=966427809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.293756, 1.2275229, -1.9140128)
+use_collision = true
+size = Vector3(1, 1.7254639, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Geometry/NavigationRegion3D" unique_id=1935995310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.293756, 0.6150502, -0.5926974)
+use_collision = true
+size = Vector3(1, 1.7254639, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Geometry/NavigationRegion3D" unique_id=706085154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.293756, 1.9121035, -3.7736664)
+use_collision = true
+size = Vector3(1, 1.7254639, 1)
 
 [node name="Environment" type="Node3D" parent="." unique_id=792366660]
 
@@ -67,3 +92,4 @@ environment = SubResource("Environment_4717r")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment" unique_id=1884841855]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 25.347557, 22.855164, -0.073916435)
+shadow_enabled = true

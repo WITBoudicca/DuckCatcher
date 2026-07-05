@@ -9,7 +9,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to(player.jump_state)
 		return
 	if input_dir.length() > 0:
-		if Input.is_action_pressed("sprint"):
+		if Input.is_action_pressed("sprint") and player.can_sprint():
 			state_machine.transition_to(player.sprint_state)
 		else:
 			state_machine.transition_to(player.walk_state)
