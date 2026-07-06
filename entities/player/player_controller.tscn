@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://0h1yy3lbgudr" path="res://entities/player/states/movement states/jump_state.gd" id="7_t3d2v"]
 [ext_resource type="Script" uid="uid://bgkkfeginlfj5" path="res://system/ui/player hud/reticle_draw.gd" id="9_eg50i"]
 [ext_resource type="Script" uid="uid://b0rmmy84nsteq" path="res://entities/player/components/camera_effects.gd" id="9_qpkgk"]
+[ext_resource type="Script" uid="uid://br0hd6icp1k2g" path="res://entities/player/player_hud.gd" id="10_2sxxl"]
 [ext_resource type="Script" uid="uid://bue301hq5dktf" path="res://entities/player/stamina_bar.gd" id="11_t3d2v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43phm"]
@@ -26,13 +27,9 @@ material = SubResource("StandardMaterial3D_rs2e6")
 radius = 0.1821289
 height = 0.7294922
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d1k4n"]
-radius = 0.44458008
-height = 0.88916016
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sfv1e"]
-radius = 0.44677734
-height = 0.8935547
+radius = 0.3
+height = 0.6
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4717r"]
 
@@ -64,7 +61,7 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[node name="PlayerController" type="CharacterBody3D" unique_id=569843570 node_paths=PackedStringArray("camera_effects", "idle_state", "walk_state", "sprint_state", "jump_state", "interact_ray")]
+[node name="PlayerController" type="CharacterBody3D" unique_id=569843570 node_paths=PackedStringArray("camera_effects", "idle_state", "walk_state", "sprint_state", "jump_state", "interact_ray", "ground_ray", "hold_point")]
 collision_layer = 2
 script = ExtResource("1_symyc")
 camera_effects = NodePath("CameraController/SpringArm3D/Camera3D")
@@ -72,7 +69,10 @@ idle_state = NodePath("StateMachine/IdleState")
 walk_state = NodePath("StateMachine/WalkState")
 sprint_state = NodePath("StateMachine/SprintState")
 jump_state = NodePath("StateMachine/JumpState")
-interact_ray = NodePath("CameraController/SpringArm3D/Camera3D/InteractionRayCast3D")
+interact_ray = NodePath("CameraController/SpringArm3D/Camera3D/InteractionRay")
+ground_ray = NodePath("CameraController/GroundRay")
+hold_point = NodePath("CameraController/SpringArm3D/Camera3D/HoldPoint")
+throw_force = 40.0
 
 [node name="Armature" type="Node3D" parent="." unique_id=1999973379]
 
@@ -87,11 +87,11 @@ layers = 2
 mesh = SubResource("CapsuleMesh_symyc")
 
 [node name="StandingCollision" type="CollisionShape3D" parent="." unique_id=844640977]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5554199, 0)
-shape = SubResource("CapsuleShape3D_d1k4n")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7103271, 0)
+shape = SubResource("CapsuleShape3D_sfv1e")
 
 [node name="ShrinkedCollision" type="CollisionShape3D" parent="." unique_id=886425023]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44677734, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29541016, 0)
 shape = SubResource("CapsuleShape3D_sfv1e")
 
 [node name="Components" type="Node" parent="." unique_id=881105729]
@@ -120,7 +120,7 @@ script = ExtResource("7_t3d2v")
 metadata/_custom_type_script = "uid://0h1yy3lbgudr"
 
 [node name="CameraController" type="Node3D" parent="." unique_id=1191491835 node_paths=PackedStringArray("player_controller", "component_mouse_capture")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0840907, 0)
 script = ExtResource("3_sglur")
 player_controller = NodePath("..")
 component_mouse_capture = NodePath("../Components/MouseCapture")
@@ -135,7 +135,16 @@ attributes = SubResource("CameraAttributesPractical_abrql")
 script = ExtResource("9_qpkgk")
 player = NodePath("../../..")
 
-[node name="InteractionRayCast3D" type="RayCast3D" parent="CameraController/SpringArm3D/Camera3D" unique_id=86940088]
+[node name="HoldPoint" type="Marker3D" parent="CameraController/SpringArm3D/Camera3D" unique_id=1712275961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -0.6, -1.5)
+
+[node name="InteractionRay" type="RayCast3D" parent="CameraController/SpringArm3D/Camera3D" unique_id=86940088]
+target_position = Vector3(0, 0, -3)
+collision_mask = 8
+
+[node name="GroundRay" type="RayCast3D" parent="CameraController" unique_id=1467636358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+target_position = Vector3(0, -0.1, 0)
 collision_mask = 8
 
 [node name="PlayerHud" type="Control" parent="." unique_id=64239955]
@@ -146,6 +155,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("10_2sxxl")
 
 [node name="Reticle" type="CenterContainer" parent="PlayerHud" unique_id=1101501280]
 layout_mode = 1
@@ -187,3 +197,24 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_gq0m7")
 show_percentage = false
 script = ExtResource("11_t3d2v")
 metadata/_edit_use_anchors_ = true
+
+[node name="InteractionPrompt" type="Label" parent="PlayerHud" unique_id=638094281]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -134.0
+offset_right = 75.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 20
+text = " Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

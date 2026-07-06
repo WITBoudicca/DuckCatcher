@@ -1,3 +1,4 @@
+class_name Duckling
 extends CharacterBody3D
 
 @export_group("Movement")

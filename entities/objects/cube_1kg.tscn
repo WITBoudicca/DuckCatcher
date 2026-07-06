@@ -1,0 +1,50 @@
+[gd_scene format=4 uid="uid://dsluwqmfj8b6a"]
+
+[ext_resource type="Script" uid="uid://d1b8cua1e2sg5" path="res://entities/objects/pickables.gd" id="1_vny1s"]
+[ext_resource type="Material" uid="uid://bh3pbk7vpblut" path="res://assets/shaders/Outline_mat.tres" id="2_sj015"]
+[ext_resource type="Texture2D" uid="uid://2mfveho8ib0n" path="res://assets/prototypes/Proto Wall.png" id="2_vny1s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nt333"]
+albedo_color = Color(0.9610463, 0.5697664, 0.029269658, 1)
+albedo_texture = ExtResource("2_vny1s")
+uv1_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6tqst"]
+material = SubResource("StandardMaterial3D_nt333")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vny1s"]
+_surfaces = [{
+"aabb": AABB(-0.511547, -0.511547, -0.511547, 1.023094, 1.023094, 1.023094),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAAEAAIAAgAEAAYAAQAFAAMAAwAFAAcACAAMAAoACgAMAA4ACQANAAsACwANAA8AEAAUABIAEgAUABYAEQAVABMAEwAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("v/QCv7/0Aj+/9AI/v/QCP7/0Aj+/9AK/v/QCP7/0Aj+/9AI/v/QCv7/0Aj+/9AK/v/QCv7/0Ar+/9AI/v/QCP7/0Ar+/9AK/v/QCP7/0Ar+/9AI/v/QCv7/0Ar+/9AK/v/QCP7/0Aj+/9AI/v/QCv7/0Aj+/9AK/v/QCP7/0Aj+/9AK/v/QCv7/0Aj+/9AI/v/QCP7/0Ar+/9AI/v/QCv7/0Ar+/9AK/v/QCP7/0Ar+/9AK/v/QCv7/0Ar+/9AI/v/QCP7/0Aj+/9AI/v/QCv7/0Ar+/9AI/v/QCv7/0Aj+/9AI/v/QCP7/0Ar+/9AI/v/QCP7/0Aj+/9AK/v/QCv7/0Ar+/9AK/v/QCv7/0Aj+/9AK/v/QCP7/0Ar+/9AK//3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vny1s"]
+
+[node name="Cube_1kg" type="RigidBody3D" unique_id=840454992 node_paths=PackedStringArray("mesh_instance", "outline_mesh")]
+collision_layer = 8
+collision_mask = 11
+gravity_scale = 0.5
+angular_damp = 0.5
+script = ExtResource("1_vny1s")
+mesh_instance = NodePath("MeshInstance3D")
+outline_mesh = NodePath("MeshInstance3D/MeshInstance3D")
+interaction_label = "Pick up 5Kg ball"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1092464648]
+mesh = SubResource("BoxMesh_6tqst")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=520105296]
+visible = false
+mesh = SubResource("ArrayMesh_vny1s")
+surface_material_override/0 = ExtResource("2_sj015")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1272904327]
+shape = SubResource("BoxShape3D_vny1s")

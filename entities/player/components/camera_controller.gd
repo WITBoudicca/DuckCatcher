@@ -9,8 +9,8 @@ extends Node3D
 
 @export_category("Camera Settings")
 @export_group("Camera tilt")
-@export_range(-90, -45) var tilt_lower_limit : int = -60
-@export_range(45, 90) var tilt_upper_limit : int = 45
+@export_range(-90, -45) var tilt_lower_limit : int = -75
+@export_range(45, 90) var tilt_upper_limit : int = 60
 
 
 var _rotation : Vector3

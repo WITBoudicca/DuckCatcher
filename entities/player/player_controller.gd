@@ -14,10 +14,6 @@ extends CharacterBody3D
 @export var sprint_state: State
 @export var jump_state: State
 
-@export_group("Interaction")
-@export var interact_ray: RayCast3D
-@export var interact_distance: float = 3.0
-
 @export_category("Player Settings")
 @export_group("Movement")
 @export var walk_speed: float = 5.0
@@ -35,6 +31,17 @@ extends CharacterBody3D
 @export var stamina_regen_rate: float = 15.0   # per second while regenerating
 @export var stamina_regen_delay: float = 0.75  # seconds after last drain before regen starts
 @export var min_stamina_to_sprint: float = 30.0 # must regen past this to sprint again once exhausted
+
+@export_group("Interaction")
+@export var interact_ray: RayCast3D
+@export var ground_ray: RayCast3D
+@export var hold_point: Marker3D
+@export var interact_distance: float = 3.0
+@export_subgroup("Holding Objects")
+@export var drop_below_player: bool = false
+@export var throw_force: float = 20.0
+@export var follow_speed: float = 30.0
+@export var max_distance_from_camera: float = 5.0
 #endregion
 
 #region Onready / State
@@ -46,6 +53,10 @@ var current_stamina: float
 var _regen_timer: float = 0.0
 var _exhausted: bool = false
 var _draining_this_frame: bool = false
+#endregion
+
+#region Held Objects
+var held_object: RigidBody3D = null
 #endregion
 
 #region Engine Callbacks
@@ -64,6 +75,9 @@ func _physics_process(delta: float) -> void:
 	if not _draining_this_frame:
 		_regen_stamina(delta)
 	
+	_update_held_object()
+	_update_hover()
+	
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -73,6 +87,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		try_interact()
 	if event.is_action_pressed("catch"):
 		try_catch()
+	if event.is_action_pressed("throw"):
+		try_throw()
 #endregion
 
 #region Movement
@@ -129,10 +145,24 @@ func can_sprint() -> bool:
 
 #region Interaction
 func try_interact() -> void:
-	_raycast_call("interact")
+	if held_object != null:
+		drop_held_object()
+		return
+	if interact_ray == null or not interact_ray.is_colliding():
+		return
+
+	var target = interact_ray.get_collider()
+	if target.has_method("interact"):
+		target.call("interact", self)
+	elif target is RigidBody3D:
+		set_held_object(target)
 
 func try_catch() -> void:
 	_raycast_call("catch")
+
+func try_throw() -> void:
+	if held_object != null:
+		throw_held_object()
 
 func _raycast_call(method_name: String) -> void:
 	if interact_ray == null or not interact_ray.is_colliding():
@@ -141,3 +171,68 @@ func _raycast_call(method_name: String) -> void:
 	if target and target.has_method(method_name):
 		target.call(method_name, self)
 #endregion
+
+#region Hover / Highlight
+var _hovered_pickable: Pickables = null
+
+func _update_hover() -> void:
+	if interact_ray == null:
+		return
+	
+	var current: Pickables = null
+	if interact_ray.is_colliding():
+		var collider = interact_ray.get_collider()
+		if collider is Pickables:
+			current = collider
+	
+	if current == _hovered_pickable:
+		return
+	
+	if _hovered_pickable != null:
+		_hovered_pickable.set_highlighted(false)
+	
+	if current != null:
+		current.set_highlighted(true)
+	_hovered_pickable = current
+#endregion
+
+#region Held Objects
+func set_held_object(body: RigidBody3D) -> void:
+	if body == null:
+		return
+	
+	held_object = body
+
+func drop_held_object() -> void:
+	if held_object == null:
+		return
+	
+	var obj := held_object
+	held_object = null
+	
+	if drop_below_player and ground_ray != null and ground_ray.is_colliding():
+		obj.global_position = ground_ray.get_collision_point()
+
+func throw_held_object() -> void:
+	if held_object == null:
+		return
+	
+	var obj := held_object
+	held_object = null
+	
+	var aim_point: Vector3 = interact_ray.global_position - interact_ray.global_transform.basis.z * 50.0
+	var throw_direction: Vector3 = (aim_point - obj.global_position).normalized()
+	
+	obj.apply_central_impulse(throw_direction * throw_force)
+
+func _update_held_object() -> void:
+	if held_object == null or hold_point == null:
+		return
+	
+	if held_object.global_position.distance_to(camera_effects.global_position) > max_distance_from_camera:
+		drop_held_object()
+		return
+	
+	var to_target = hold_point.global_position - held_object.global_position
+	held_object.linear_velocity = to_target * follow_speed
+	#endregion
