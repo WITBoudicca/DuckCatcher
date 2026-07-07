@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://clnpmk5pcvcey" path="res://entities/player/player_controller.tscn" id="2_tcf2h"]
 [ext_resource type="PackedScene" uid="uid://ifi2dqkrynf" path="res://entities/objects/sphere_1kg.tscn" id="3_h5o24"]
 [ext_resource type="PackedScene" uid="uid://c7a7e1k3b6mcq" path="res://entities/objects/sphere_5kg.tscn" id="4_mmdvd"]
-[ext_resource type="PackedScene" uid="uid://dsluwqmfj8b6a" path="res://entities/objects/cube_1kg.tscn" id="5_fn3g3"]
+[ext_resource type="PackedScene" uid="uid://dsluwqmfj8b6a" path="res://entities/objects/cube_2kg.tscn" id="5_fn3g3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g312j"]
 albedo_texture = ExtResource("1_6xmxd")
@@ -38,7 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23666286, 0)
 [node name="DucklingEntity" type="Node3D" parent="Entities" unique_id=1813489295]
 
 [node name="Duckling" parent="Entities/DucklingEntity" unique_id=192723076 instance=ExtResource("2_4717r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033987045, 0.17929244, -3.7306452)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033987045, 3.276574, -3.7306452)
 
 [node name="NPCEntity" type="Node3D" parent="Entities" unique_id=1477069671]
 
@@ -161,8 +161,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 4.553731, -19.0675
 
 [node name="Cube_5kg20" parent="Entities/PhyObjects/Cube" unique_id=1519519789 instance=ExtResource("5_fn3g3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 4.553731, -19.067562)
-
-[node name="Lighting" type="Node3D" parent="." unique_id=591190226]
 
 [node name="Geometry" type="Node3D" parent="." unique_id=2071783606]
 

@@ -148,13 +148,16 @@ func try_interact() -> void:
 	if held_object != null:
 		drop_held_object()
 		return
+	
 	if interact_ray == null or not interact_ray.is_colliding():
 		return
-
+	
 	var target = interact_ray.get_collider()
+	
 	if target.has_method("interact"):
 		target.call("interact", self)
-	elif target is RigidBody3D:
+	
+	elif target.get_node_or_null("Pickables") != null:
 		set_held_object(target)
 
 func try_catch() -> void:
@@ -167,7 +170,9 @@ func try_throw() -> void:
 func _raycast_call(method_name: String) -> void:
 	if interact_ray == null or not interact_ray.is_colliding():
 		return
+	
 	var target = interact_ray.get_collider()
+	
 	if target and target.has_method(method_name):
 		target.call(method_name, self)
 #endregion
@@ -182,8 +187,8 @@ func _update_hover() -> void:
 	var current: Pickables = null
 	if interact_ray.is_colliding():
 		var collider = interact_ray.get_collider()
-		if collider is Pickables:
-			current = collider
+		if collider:
+			current = collider.get_node_or_null("Pickables") as Pickables
 	
 	if current == _hovered_pickable:
 		return

@@ -1,5 +1,5 @@
 class_name Pickables
-extends RigidBody3D
+extends Node
 
 @export var mesh_instance: MeshInstance3D
 @export var outline_mesh: MeshInstance3D
@@ -8,11 +8,7 @@ extends RigidBody3D
 var _is_highlighted: bool = false
 
 func _ready() -> void:
-	if mesh_instance == null:
-		push_warning("Pickables: mesh_instance not assigned on %s" % name)
-	if outline_mesh == null:
-		push_warning("Pickables: outline_mesh not assigned on %s" % name)
-	else:
+	if outline_mesh != null:
 		outline_mesh.visible = false
 
 func set_highlighted(value: bool) -> void:

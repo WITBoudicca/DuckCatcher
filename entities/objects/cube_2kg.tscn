@@ -7,6 +7,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nt333"]
 albedo_color = Color(0.9610463, 0.5697664, 0.029269658, 1)
 albedo_texture = ExtResource("2_vny1s")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv2_world_triplanar = true
 
@@ -28,15 +29,11 @@ _surfaces = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vny1s"]
 
-[node name="Cube_1kg" type="RigidBody3D" unique_id=840454992 node_paths=PackedStringArray("mesh_instance", "outline_mesh")]
+[node name="Cube_2kg" type="RigidBody3D" unique_id=840454992]
 collision_layer = 8
 collision_mask = 11
-gravity_scale = 0.5
+mass = 2.0
 angular_damp = 0.5
-script = ExtResource("1_vny1s")
-mesh_instance = NodePath("MeshInstance3D")
-outline_mesh = NodePath("MeshInstance3D/MeshInstance3D")
-interaction_label = "Pick up 5Kg ball"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1092464648]
 mesh = SubResource("BoxMesh_6tqst")
@@ -48,3 +45,9 @@ surface_material_override/0 = ExtResource("2_sj015")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1272904327]
 shape = SubResource("BoxShape3D_vny1s")
+
+[node name="Pickables" type="Node" parent="." unique_id=739365648 node_paths=PackedStringArray("mesh_instance", "outline_mesh")]
+script = ExtResource("1_vny1s")
+mesh_instance = NodePath("../MeshInstance3D")
+outline_mesh = NodePath("../MeshInstance3D/MeshInstance3D")
+metadata/_custom_type_script = "uid://d1b8cua1e2sg5"
