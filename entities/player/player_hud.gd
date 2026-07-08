@@ -1,19 +1,28 @@
 class_name PlayerHud
 extends Control
 
-@onready var reticle: CenterContainer = $Reticle
+@onready var reticle_draw: Control = $Reticle/ReticleDraw
+@onready var reticle_hand: TextureRect = $Reticle/ReticleHand
 @onready var stamina_bar: Control = $StaminaBar
 @onready var interaction_prompt: Label = $InteractionPrompt
 
 func _ready() -> void:
 	interaction_prompt.visible = false
+	reticle_hand.visible = false
 	SignalBus.hovered_pickable_changed.connect(_on_hovered_pickable_changed)
 
-func _on_hovered_pickable_changed(pickable: Node) -> void:
-	if pickable == null:
+func _on_hovered_pickable_changed(target: Node) -> void:
+	if target == null:
 		interaction_prompt.visible = false
+		reticle_hand.visible = false
 		return
 	
-	if pickable is Pickables:
-		interaction_prompt.text = pickable.interaction_label
-		interaction_prompt.visible = true
+	reticle_hand.visible = true
+	interaction_prompt.visible = true
+	
+	if target is Pickables:
+		interaction_prompt.text = target.interaction_label
+	elif target.has_method("catch"):
+		interaction_prompt.text = "Catch"
+	elif target.has_method("interact"):
+		interaction_prompt.text = "Interact"

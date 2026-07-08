@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://2mfveho8ib0n" path="res://assets/prototypes/Proto Wall.png" id="2_vny1s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nt333"]
-albedo_color = Color(0.9610463, 0.5697664, 0.029269658, 1)
+albedo_color = Color(0.8592137, 0.4477197, 1.92523e-07, 1)
 albedo_texture = ExtResource("2_vny1s")
 uv1_offset = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true

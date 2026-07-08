@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var debug: bool = false
 
 @export_category("References")
-@export_group("camera")
+@export_group("Camera")
 @export var camera_effects: CameraEffects 
 
 @export_group("States")
@@ -55,8 +55,10 @@ var _exhausted: bool = false
 var _draining_this_frame: bool = false
 #endregion
 
-#region Held Objects
+#region Held Objects And Interactables
 var held_object: RigidBody3D = null
+var held_duck: Duckling = null
+var _hovered_target: Node = null
 #endregion
 
 #region Engine Callbacks
@@ -148,6 +150,9 @@ func try_interact() -> void:
 	if held_object != null:
 		drop_held_object()
 		return
+	if held_duck != null:
+		try_release_duck()
+		return
 	
 	if interact_ray == null or not interact_ray.is_colliding():
 		return
@@ -159,6 +164,11 @@ func try_interact() -> void:
 	
 	elif target.get_node_or_null("Pickables") != null:
 		set_held_object(target)
+
+func try_release_duck() -> void:
+	if held_duck == null:
+		return
+	release_duck()
 
 func try_catch() -> void:
 	_raycast_call("catch")
@@ -178,27 +188,35 @@ func _raycast_call(method_name: String) -> void:
 #endregion
 
 #region Hover / Highlight
-var _hovered_pickable: Pickables = null
 
 func _update_hover() -> void:
 	if interact_ray == null:
 		return
 	
-	var current: Pickables = null
+	var current: Node = null
+	
 	if interact_ray.is_colliding():
 		var collider = interact_ray.get_collider()
 		if collider:
-			current = collider.get_node_or_null("Pickables") as Pickables
+			var pickable = collider.get_node_or_null("Pickables")
+			if pickable != null:
+				current = pickable
+			elif collider.has_method("catch"):
+				current = collider
+			elif collider.has_method("interact"):
+				current = collider
 	
-	if current == _hovered_pickable:
+	if current == _hovered_target:
 		return
 	
-	if _hovered_pickable != null:
-		_hovered_pickable.set_highlighted(false)
+	if _hovered_target is Pickables:
+		_hovered_target.set_highlighted(false)
 	
-	if current != null:
+	if current is Pickables:
 		current.set_highlighted(true)
-	_hovered_pickable = current
+	
+	_hovered_target = current
+	SignalBus.hovered_pickable_changed.emit(current)
 #endregion
 
 #region Held Objects
@@ -240,4 +258,30 @@ func _update_held_object() -> void:
 	
 	var to_target = hold_point.global_position - held_object.global_position
 	held_object.linear_velocity = to_target * follow_speed
+	#endregion
+
+#region Hold Duck
+func hold_duck(duck: Duckling) -> void:
+	if held_duck != null:
+		return
+	held_duck = duck
+	duck.set_physics_process(false)
+	duck.velocity = Vector3.ZERO
+	duck.get_parent().remove_child(duck)
+	hold_point.add_child(duck)
+	duck.transform = Transform3D.IDENTITY
+
+func release_duck() -> void:
+	if held_duck == null:
+		return
+	var duck := held_duck
+	held_duck = null
+	
+	var world_transform := duck.global_transform
+	hold_point.remove_child(duck)
+	get_tree().current_scene.add_child(duck)
+	duck.global_transform = world_transform
+	duck.get_node("CollisionShape3D").disabled = false
+	
+	duck.notify_returned_to_mama()
 	#endregion

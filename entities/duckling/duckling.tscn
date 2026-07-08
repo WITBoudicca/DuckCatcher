@@ -26,25 +26,22 @@ height = 0.9343262
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_c0u68")
+rotation_speed = 5.0
+escape_speed = 12.0
+run_speed = 6.0
 
 [node name="Armature" type="Node3D" parent="." unique_id=399273888]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Armature" unique_id=2047715662]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4671631, 0)
 mesh = SubResource("CapsuleMesh_vdo37")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Armature" unique_id=600612367]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22266707, 0.614486, -0.36847976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22266707, 0.16883469, -0.36847976)
 mesh = SubResource("CapsuleMesh_c0u68")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Armature" unique_id=2068515011]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23139977, 0.614486, -0.36847976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23139977, 0.16883469, -0.36847976)
 mesh = SubResource("CapsuleMesh_c0u68")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=421487624]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4671631, 0)
 shape = SubResource("CapsuleShape3D_vdo37")
-
-[node name="BrainTimer" type="Timer" parent="." unique_id=18183521]
-wait_time = 2.0
-one_shot = true

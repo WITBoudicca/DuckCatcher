@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bpd74myqn03c1"]
 
 [ext_resource type="Texture2D" uid="uid://2mfveho8ib0n" path="res://assets/prototypes/Proto Wall.png" id="1_6xmxd"]
+[ext_resource type="Script" uid="uid://1kr3lte12na5" path="res://world/world.gd" id="1_sc4t8"]
 [ext_resource type="PackedScene" uid="uid://bjh8onph4gvse" path="res://entities/duckling/duckling.tscn" id="2_4717r"]
 [ext_resource type="PackedScene" uid="uid://clnpmk5pcvcey" path="res://entities/player/player_controller.tscn" id="2_tcf2h"]
 [ext_resource type="PackedScene" uid="uid://ifi2dqkrynf" path="res://entities/objects/sphere_1kg.tscn" id="3_h5o24"]
 [ext_resource type="PackedScene" uid="uid://c7a7e1k3b6mcq" path="res://entities/objects/sphere_5kg.tscn" id="4_mmdvd"]
 [ext_resource type="PackedScene" uid="uid://dsluwqmfj8b6a" path="res://entities/objects/cube_2kg.tscn" id="5_fn3g3"]
+[ext_resource type="Script" uid="uid://cqlmrwvjnuhh8" path="res://entities/duckling/duck_path.gd" id="6_duckpath"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g312j"]
 albedo_texture = ExtResource("1_6xmxd")
@@ -27,6 +29,7 @@ glow_strength = 1.1
 glow_bloom = 0.5
 
 [node name="World" type="Node3D" unique_id=1123708402]
+script = ExtResource("1_sc4t8")
 
 [node name="Entities" type="Node3D" parent="." unique_id=505466932]
 
@@ -37,8 +40,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23666286, 0)
 
 [node name="DucklingEntity" type="Node3D" parent="Entities" unique_id=1813489295]
 
-[node name="Duckling" parent="Entities/DucklingEntity" unique_id=192723076 instance=ExtResource("2_4717r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033987045, 3.276574, -3.7306452)
+[node name="Duck1" type="Node3D" parent="Entities/DucklingEntity" unique_id=1741398319]
+
+[node name="Duckling" parent="Entities/DucklingEntity/Duck1" unique_id=192723076 node_paths=PackedStringArray("start_location", "initial_wait_location", "paths_container") instance=ExtResource("2_4717r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5619204, 3.6971717)
+start_location = NodePath("../Mark00")
+initial_wait_location = NodePath("../Mark01")
+paths_container = NodePath("../Paths1")
+
+[node name="Paths1" type="Node3D" parent="Entities/DucklingEntity/Duck1" unique_id=1964818469]
+
+[node name="PathA" type="Node" parent="Entities/DucklingEntity/Duck1/Paths1" unique_id=342048579]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark01")
+point_b = NodePath("../../Mark02")
+
+[node name="PathB" type="Node" parent="Entities/DucklingEntity/Duck1/Paths1" unique_id=784589852]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark02")
+point_b = NodePath("../../Mark03")
+
+[node name="PathC" type="Node" parent="Entities/DucklingEntity/Duck1/Paths1" unique_id=1004113610]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark03")
+point_b = NodePath("../../Mark04")
+
+[node name="PathD" type="Node" parent="Entities/DucklingEntity/Duck1/Paths1" unique_id=963570359]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark04")
+point_b = NodePath("../../Mark05")
+
+[node name="PathE" type="Node" parent="Entities/DucklingEntity/Duck1/Paths1" unique_id=2125824315]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark05")
+point_b = NodePath("../../Mark00")
+
+[node name="Mark00" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=1035313601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65106666, 3.7416809)
+
+[node name="Mark01" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=65630759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2803288, 0.65106666, 3.7416809)
+
+[node name="Mark02" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=172646134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2803288, 0.65106666, 11.683403)
+
+[node name="Mark03" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=980133175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4069314, 0.65106666, 11.683403)
+
+[node name="Mark04" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=1568643416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.222427, 0.65106666, 11.683403)
+
+[node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=651153145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.222427, 0.65106666, 3.5351563)
 
 [node name="NPCEntity" type="Node3D" parent="Entities" unique_id=1477069671]
 

@@ -18,7 +18,7 @@ metadata/_stencil_owned = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evv8w"]
 next_pass = SubResource("StandardMaterial3D_hogcl")
 diffuse_mode = 3
-specular_mode = 1
+specular_mode = 2
 albedo_color = Color(0.34036294, 0.5198643, 0.45450777, 1)
 roughness = 0.0
 grow_amount = 1.321
@@ -49,6 +49,7 @@ radius = 0.25
 [node name="Sphere_1kg" type="RigidBody3D" unique_id=840454992]
 collision_layer = 8
 collision_mask = 11
+continuous_cd = true
 angular_damp = 0.5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1092464648]
