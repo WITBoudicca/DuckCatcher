@@ -34,10 +34,6 @@ height = 0.6
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4717r"]
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_abrql"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 100.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wt16y"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 2
@@ -132,7 +128,6 @@ spring_length = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D" unique_id=2094901537 node_paths=PackedStringArray("player")]
 cull_mask = 1048573
-attributes = SubResource("CameraAttributesPractical_abrql")
 script = ExtResource("9_qpkgk")
 player = NodePath("../../..")
 
@@ -224,3 +219,16 @@ text = " Interact"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Control" type="Control" parent="PlayerHud" unique_id=1830841938]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="PlayerHud/Control" unique_id=1902128685]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 23.0
+offset_right = 92.0
+offset_bottom = 46.0
+text = "Press 'ctrl + F' for Fullscreen"
