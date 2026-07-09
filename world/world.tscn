@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c7a7e1k3b6mcq" path="res://entities/objects/sphere_5kg.tscn" id="4_mmdvd"]
 [ext_resource type="PackedScene" uid="uid://dsluwqmfj8b6a" path="res://entities/objects/cube_2kg.tscn" id="5_fn3g3"]
 [ext_resource type="Script" uid="uid://cqlmrwvjnuhh8" path="res://entities/duckling/duck_path.gd" id="6_duckpath"]
+[ext_resource type="PackedScene" uid="uid://crlrogkenaott" path="res://entities/mama_duck/mama_duck.tscn" id="8_ocfjn"]
 [ext_resource type="PackedScene" uid="uid://dgw65geuecput" path="res://assets/Models/tscn/park.tscn" id="9_4papg"]
+[ext_resource type="Script" uid="uid://cwnp1fxqkuv3t" path="res://entities/mama_duck/mama_duck.gd" id="9_dqqhb"]
 [ext_resource type="Texture2D" uid="uid://b7xvjgkwbclne" path="res://assets/sprites/sky_26_2k.png" id="10_fyhu2"]
 [ext_resource type="Script" uid="uid://fuyhg4xnyp4o" path="res://world/environment.gd" id="10_ov2xu"]
 
@@ -219,6 +221,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 6.902793, -19.0675
 
 [node name="Cube_5kg20" parent="Entities/PhyObjects/Cube" unique_id=1519519789 instance=ExtResource("5_fn3g3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 6.902793, -19.067562)
+
+[node name="MamaDuckEntity" type="Node3D" parent="Entities" unique_id=1219468229]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.974901, 4.7758446, 0)
+
+[node name="MamaDuck" parent="Entities/MamaDuckEntity" unique_id=2085951842 instance=ExtResource("8_ocfjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2531314, 0)
+script = ExtResource("9_dqqhb")
 
 [node name="Geometry" type="Node3D" parent="." unique_id=2071783606]
 
