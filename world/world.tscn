@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c7a7e1k3b6mcq" path="res://entities/objects/sphere_5kg.tscn" id="4_mmdvd"]
 [ext_resource type="PackedScene" uid="uid://dsluwqmfj8b6a" path="res://entities/objects/cube_2kg.tscn" id="5_fn3g3"]
 [ext_resource type="Script" uid="uid://cqlmrwvjnuhh8" path="res://entities/duckling/duck_path.gd" id="6_duckpath"]
-[ext_resource type="PackedScene" uid="uid://dgw65geuecput" path="res://assets/Models/park.tscn" id="9_4papg"]
+[ext_resource type="PackedScene" uid="uid://dgw65geuecput" path="res://assets/Models/tscn/park.tscn" id="9_4papg"]
 [ext_resource type="Texture2D" uid="uid://b7xvjgkwbclne" path="res://assets/sprites/sky_26_2k.png" id="10_fyhu2"]
 [ext_resource type="Script" uid="uid://fuyhg4xnyp4o" path="res://world/environment.gd" id="10_ov2xu"]
 

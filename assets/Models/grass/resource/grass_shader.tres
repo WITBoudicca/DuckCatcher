@@ -1,0 +1,130 @@
+[gd_resource type="VisualShader" format=3 uid="uid://dahiw8vfsf05"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_1smic"]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_eewx3"]
+default_input_values = [0, 0.0, 1, 1.0, 2, 0.0]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_1smic"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_eewx3"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_k3n54"]
+function = 31
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_ltfn1"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_uikw1"]
+parameter_name = "BaseColor"
+default_value_enabled = true
+default_value = Color(0.19769922, 0.41442782, 0.088084824, 1)
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_5o2jj"]
+parameter_name = "GrassColor"
+default_value_enabled = true
+default_value = Color(0.32520115, 0.82999104, 0.08775922, 1)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_so7uh"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_o52fk"]
+default_input_values = [1, Vector2(0.1, 0.1), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_h04qd"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_uw7ms"]
+input_name = "node_position_world"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_7136v"]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_ndn14"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_gijfe"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_o52fk"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0.1, 0.1, 0.1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_so7uh"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_o52fk"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_h04qd"]
+function = 31
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_7136v"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_auee8"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_ks16n"]
+parameter_name = "WindNoise"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_xtxol"]
+output_port_for_preview = 0
+source = 5
+
+[resource]
+modes/cull = 2
+modes/diffuse = 3
+nodes/vertex/0/position = Vector2(144, 144)
+nodes/vertex/2/node = SubResource("VisualShaderNodeInput_so7uh")
+nodes/vertex/2/position = Vector2(-1584, 560)
+nodes/vertex/3/node = SubResource("VisualShaderNodeVectorDecompose_o52fk")
+nodes/vertex/3/position = Vector2(-1280, 560)
+nodes/vertex/4/node = SubResource("VisualShaderNodeFloatFunc_h04qd")
+nodes/vertex/4/position = Vector2(-1056, 560)
+nodes/vertex/6/node = SubResource("VisualShaderNodeVectorOp_7136v")
+nodes/vertex/6/position = Vector2(-144, 256)
+nodes/vertex/7/node = SubResource("VisualShaderNodeInput_auee8")
+nodes/vertex/7/position = Vector2(-496, -16)
+nodes/vertex/8/node = SubResource("VisualShaderNodeTexture2DParameter_ks16n")
+nodes/vertex/8/position = Vector2(-1552, 96)
+nodes/vertex/9/node = SubResource("VisualShaderNodeTexture_xtxol")
+nodes/vertex/9/position = Vector2(-976, -48)
+nodes/vertex/10/node = SubResource("VisualShaderNodeVectorOp_so7uh")
+nodes/vertex/10/position = Vector2(-768, 448)
+nodes/vertex/11/node = SubResource("VisualShaderNodeUVFunc_o52fk")
+nodes/vertex/11/position = Vector2(-1296, -160)
+nodes/vertex/12/node = SubResource("VisualShaderNodeInput_h04qd")
+nodes/vertex/12/position = Vector2(-1968, -16)
+nodes/vertex/13/node = SubResource("VisualShaderNodeInput_uw7ms")
+nodes/vertex/13/position = Vector2(-2480, -208)
+nodes/vertex/14/node = SubResource("VisualShaderNodeVectorDecompose_7136v")
+nodes/vertex/14/position = Vector2(-2144, -256)
+nodes/vertex/15/node = SubResource("VisualShaderNodeVectorCompose_ndn14")
+nodes/vertex/15/position = Vector2(-1904, -208)
+nodes/vertex/16/node = SubResource("VisualShaderNodeVectorOp_gijfe")
+nodes/vertex/16/position = Vector2(-1552, -176)
+nodes/vertex/17/node = SubResource("VisualShaderNodeVectorOp_o52fk")
+nodes/vertex/17/position = Vector2(-464, 416)
+nodes/vertex/connections = PackedInt32Array(2, 0, 3, 0, 6, 0, 0, 0, 7, 0, 6, 0, 8, 0, 9, 2, 9, 0, 10, 0, 4, 0, 10, 1, 11, 0, 9, 0, 13, 0, 14, 0, 14, 0, 15, 0, 15, 0, 16, 0, 14, 2, 15, 1, 12, 0, 16, 1, 16, 0, 11, 2, 3, 1, 4, 0, 10, 0, 17, 0, 17, 0, 6, 1)
+nodes/fragment/2/node = SubResource("VisualShaderNodeFloatConstant_1smic")
+nodes/fragment/2/position = Vector2(144, 432)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVectorCompose_eewx3")
+nodes/fragment/3/position = Vector2(144, 544)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_1smic")
+nodes/fragment/4/position = Vector2(-656, 384)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorDecompose_eewx3")
+nodes/fragment/5/position = Vector2(-352, 288)
+nodes/fragment/6/node = SubResource("VisualShaderNodeFloatFunc_k3n54")
+nodes/fragment/6/position = Vector2(-128, 256)
+nodes/fragment/7/node = SubResource("VisualShaderNodeMix_ltfn1")
+nodes/fragment/7/position = Vector2(112, 64)
+nodes/fragment/8/node = SubResource("VisualShaderNodeColorParameter_uikw1")
+nodes/fragment/8/position = Vector2(-304, -256)
+nodes/fragment/9/node = SubResource("VisualShaderNodeColorParameter_5o2jj")
+nodes/fragment/9/position = Vector2(-304, -32)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 6, 0, 7, 2, 5, 1, 6, 0, 2, 0, 0, 3, 3, 0, 0, 8, 3, 0, 0, 9, 7, 0, 0, 0, 8, 0, 7, 0, 9, 0, 7, 1)
