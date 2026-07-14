@@ -8,14 +8,22 @@ func _ready() -> void:
 	hide()
 
 
+func resume():
+	GameManager.unpause()
+	hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+func pause():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	show()
+	GameManager.pause()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"):
 		if get_tree().paused:
-			GameManager.resume()
+			resume()
 		else:
-			GameManager.pause()
+			pause()
 
 func _on_mute_toggled(toggled_on: bool) -> void:
 	is_muted = !is_muted
@@ -23,7 +31,7 @@ func _on_mute_toggled(toggled_on: bool) -> void:
 
 
 func _on_resume_pressed() -> void:
-	GameManager.resume()
+	resume()
 
 
 func _on_restart_pressed() -> void:
