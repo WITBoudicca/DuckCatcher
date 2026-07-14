@@ -1,0 +1,30 @@
+{
+  "first_meet": [
+	"Oh! Hello there my fellow HhUmAn BaBbY.",
+	"Have you seen my ducklings? They wandered off somewhere...",
+    "Please, if you find them, bring them back to me!"
+  ],
+  "reminder": [
+	[
+	  "Any luck finding my ducklings?",
+      "They can't have gone far..."
+	],
+	[
+	  "It's getting late... I hope they're okay.",
+      "Please keep looking!"
+	],
+	[
+	  "Thank you for helping me look.",
+      "I really appreciate it."
+	],
+	[
+	  "How long are you planning to take?",
+      "Though any help is appreciated!"
+	]
+  ],
+  "duckling_returned": [
+	"You found them all! Thank you so much! ;3",
+	"I don't know how I can repay you.",
+    "Maybe a duck kiss would be reward enough."
+  ]
+}

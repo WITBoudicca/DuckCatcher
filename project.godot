@@ -28,6 +28,7 @@ buses/default_bus_layout="uid://gttc3xmx7vlq"
 GameManager="*uid://b5twmyg622lqr"
 AudioManager="*uid://u55hv8nhlpp4"
 SignalBus="*uid://cwoem4oalleta"
+DialogueManager="*uid://ewdaswrh7n26"
 
 [debug]
 
@@ -45,6 +46,7 @@ window/stretch/aspect="expand"
 folder_colors={
 "res://assets/": "red",
 "res://data/": "orange",
+"res://dialogues/": "pink",
 "res://entities/": "yellow",
 "res://globals/": "green",
 "res://system/": "blue",
