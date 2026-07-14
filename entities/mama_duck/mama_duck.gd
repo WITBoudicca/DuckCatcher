@@ -7,6 +7,7 @@ var dialogue: Dictionary = {}
 
 func _ready() -> void:
 	_load_dialogue()
+	freeze = true
 
 func interact(_player) -> void:
 	if dialogue.is_empty() or DialogueManager.dialogue_playing:

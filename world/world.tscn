@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dgw65geuecput" path="res://assets/Models/tscn/park.tscn" id="9_4papg"]
 [ext_resource type="Texture2D" uid="uid://b7xvjgkwbclne" path="res://assets/sprites/sky_26_2k.png" id="10_fyhu2"]
 [ext_resource type="Script" uid="uid://fuyhg4xnyp4o" path="res://world/environment.gd" id="10_ov2xu"]
+[ext_resource type="PackedScene" uid="uid://w5sr2p0n3hwl" path="res://system/ui/pause menu/pause_menu.tscn" id="13_ocfjn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g312j"]
 albedo_texture = ExtResource("1_6xmxd")
@@ -228,6 +229,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44088393, 2.6590438, 3.1307
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.974901, 4.7758446, 0)
 
 [node name="MamaDuck" parent="Entities/MamaDuckEntity" unique_id=1579581581 instance=ExtResource("8_ocfjn")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.3920646, 0)
 
 [node name="Geometry" type="Node3D" parent="." unique_id=2071783606]
 
@@ -264,3 +266,5 @@ environment = SubResource("Environment_4717r")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment" unique_id=1884841855]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 25.347557, 22.855164, -0.073916435)
 shadow_enabled = true
+
+[node name="PauseMenu" parent="." unique_id=1032203355 instance=ExtResource("13_ocfjn")]
