@@ -222,9 +222,12 @@ material_override = ExtResource("3_u847h")
 cast_shadow = 0
 multimesh = ExtResource("4_b7kub")
 
-[node name="Park" parent="." index="1" unique_id=334598970]
+[node name="Park" parent="." index="1" unique_id=990143407]
 mesh = SubResource("ArrayMesh_b7kub")
 surface_material_override/0 = SubResource("StandardMaterial3D_pqttt")
+
+[node name="Player Scale" parent="." index="2" unique_id=962532278]
+visible = false
 
 [node name="ParkCollision" type="StaticBody3D" parent="." index="4" unique_id=189058142]
 transform = Transform3D(0.56422645, 0, 0, 0, 0.56422645, 0, 0, 0, 0.56422645, 0, 0, 0)
