@@ -43,15 +43,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "Quit"
 
-[node name="Label" type="Label" parent="." unique_id=1274096036]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 7.0
-offset_right = 508.0
-offset_bottom = 144.0
-theme_override_font_sizes/font_size = 80
-text = "Mallard Park"
-
 [node name="Node3D" type="Node3D" parent="." unique_id=165604213]
 
 [node name="Park" parent="Node3D" unique_id=1210955865 instance=ExtResource("2_0l1cx")]
