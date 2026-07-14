@@ -19,31 +19,31 @@ escape_speed = 12.0
 [node name="Duckling" parent="." unique_id=1287765653 instance=ExtResource("2_8n0gj")]
 transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Duckling/Armature" parent_id_path=PackedInt32Array(1287765653, 1977758505) index="0" unique_id=1948047746]
+[node name="Skeleton3D" parent="Duckling/Armature" parent_id_path=PackedInt32Array(1287765653, 2060028532) index="0" unique_id=1168452981]
 bones/0/position = Vector3(7.105429e-15, 1.3588779, -2.8426973e-08)
-bones/0/rotation = Quaternion(0.15143582, -0.0119063705, -0.07747103, 0.9853546)
-bones/1/rotation = Quaternion(-0.6573702, 0.05660883, 0.06447082, 0.7486678)
-bones/2/rotation = Quaternion(-0.58640665, -0.23805189, 0.046631318, 0.7728417)
-bones/3/rotation = Quaternion(0.0019100423, -8.752609e-09, 2.3811095e-08, 0.9999983)
-bones/4/rotation = Quaternion(-0.82578796, -2.3125152e-08, 4.2678813e-08, 0.56398064)
-bones/5/rotation = Quaternion(-0.9565455, 0.26850995, -0.08450605, 0.076038964)
-bones/6/rotation = Quaternion(0.62546575, 1.5288069e-09, -7.1067426e-08, 0.78025174)
-bones/7/rotation = Quaternion(-0.90199363, 4.618673e-08, -4.598024e-08, 0.43174937)
-bones/8/rotation = Quaternion(0.27429917, 0.13884677, -0.55377454, 0.7738316)
-bones/9/rotation = Quaternion(0.021979496, 0.0034139298, -0.024618162, 0.99944943)
-bones/10/rotation = Quaternion(0.17694286, -0.16316774, 0.40355778, 0.88272804)
-bones/11/rotation = Quaternion(0.0027433517, -0.0014586216, 0.0032966654, 0.9999898)
-bones/12/rotation = Quaternion(-0.1517267, -0.0073187985, -0.047621574, 0.9872475)
-bones/13/rotation = Quaternion(2.9407143e-09, 4.1170023e-09, -0.048358373, 0.9988301)
-bones/14/rotation = Quaternion(0.6952283, 4.7849213e-09, -1.6045534e-07, 0.71878904)
-bones/15/position = Vector3(0.4776498, 0.1427927, -0.9017606)
-bones/16/position = Vector3(0.69505733, 0.3859825, -0.028813556)
-bones/17/position = Vector3(2.5990934, 1.9750178, -0.003665328)
-bones/18/position = Vector3(-0.79314625, 0.38405466, 0.37878382)
-bones/19/position = Vector3(-0.9725461, 0.77682185, 0.98416394)
-bones/20/position = Vector3(-2.289783, 2.6060107, -0.003665328)
+bones/0/rotation = Quaternion(-0.010994851, 0.014917921, -0.008042427, 0.9997959)
+bones/1/rotation = Quaternion(-0.65980303, 8.927125e-08, 7.8304765e-08, 0.7514386)
+bones/2/rotation = Quaternion(-0.6806995, -0.61657554, 0.10663943, 0.38093406)
+bones/3/rotation = Quaternion(0.0019006508, -1.1174751e-08, -6.012803e-10, 0.9999983)
+bones/4/rotation = Quaternion(-0.5344093, -0.28872707, 0.23345546, 0.7593036)
+bones/5/rotation = Quaternion(-0.650629, 0.6324925, -0.13709433, 0.3972913)
+bones/6/rotation = Quaternion(0.0019018876, -3.7249173e-09, -2.004249e-10, 0.9999983)
+bones/7/rotation = Quaternion(-0.5344093, 0.28872707, -0.23345551, 0.7593036)
+bones/8/rotation = Quaternion(0.57294685, 0.11935174, -0.40409225, 0.7029911)
+bones/9/rotation = Quaternion(0.0034617358, 0.0107829925, -0.0010208057, 0.9999354)
+bones/10/rotation = Quaternion(0.5311656, -0.12449129, 0.42219275, 0.7239602)
+bones/11/rotation = Quaternion(0.0034184244, -0.008711454, 0.0012811839, 0.9999555)
+bones/12/rotation = Quaternion(0.017086046, -0.015468589, 0.008339226, 0.99969965)
+bones/13/rotation = Quaternion(1.4901119e-08, 9.208634e-12, -5.460521e-12, 1)
+bones/14/rotation = Quaternion(0.95493186, 8.128608e-12, -2.2767964e-07, 0.29682508)
+bones/15/position = Vector3(1.2526577, 0.30066463, -0.078995295)
+bones/16/position = Vector3(1.3862797, 0.6028657, 0.093350485)
+bones/17/position = Vector3(2.6146832, 3.374585, 0.45361948)
+bones/18/position = Vector3(-1.2526577, 0.30066463, -0.078995295)
+bones/19/position = Vector3(-1.3862797, 0.6028657, 0.093350485)
+bones/20/position = Vector3(-2.6146832, 3.374585, 0.45361948)
 
-[node name="AnimationPlayer" parent="Duckling" index="1" unique_id=139969865]
+[node name="AnimationPlayer" parent="Duckling" index="1" unique_id=1900862211]
 autoplay = &"Duckling_Hide"
 playback_default_blend_time = 1.0
 

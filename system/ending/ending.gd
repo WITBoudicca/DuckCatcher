@@ -8,3 +8,5 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	var tween = get_tree().create_tween()
 	tween.tween_property(credits, "modulate:a", 2.0, 1.0)
+	await get_tree().create_timer(5).timeout
+	SceneTransition.load_scene("res://system/start menu/start_menu.tscn")

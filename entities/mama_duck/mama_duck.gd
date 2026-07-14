@@ -33,8 +33,10 @@ func interact(_player) -> void:
 		GameManager.set_flag("met_mama_duck")
 	
 	if GameManager.has_flag("all_ducklings_returned"):
-		await !DialogueManager.dialogue_playing
-		await  get_tree().create_timer(1.5).timeout
+		print(DialogueManager.dialogue_playing)
+		while DialogueManager.dialogue_playing:
+			await get_tree().process_frame
+		await get_tree().create_timer(0.5).timeout
 		SceneTransition.load_scene("res://system/ending/ending.tscn")
 
 func return_duck(duck : Duckling):
