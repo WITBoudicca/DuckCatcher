@@ -226,7 +226,7 @@ transform = Transform3D(0.86759573, 0, -0.49727017, 0, 1, 0, 0.49727017, 0, 0.86
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44088393, 2.6590438, 3.1307993)
 
 [node name="MamaDuckEntity" type="Node3D" parent="Entities" unique_id=1219468229]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.974901, 4.7758446, 0)
+transform = Transform3D(1.5807177, 0, 1.2252884, 0, 2, 0, -1.2252884, 0, 1.5807177, -26.22815, 2.556059, -5.075838)
 
 [node name="MamaDuck" parent="Entities/MamaDuckEntity" unique_id=1579581581 instance=ExtResource("8_ocfjn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7527179, 0)

@@ -27,4 +27,27 @@ shape = SubResource("ConvexPolygonShape3D_q53lv")
 [node name="MamaDuck" parent="." unique_id=2138030897 instance=ExtResource("2_q53lv")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
+[node name="Skeleton3D" parent="MamaDuck/Armature" parent_id_path=PackedInt32Array(2138030897, 1533814471) index="0" unique_id=2061062180]
+bones/0/position = Vector3(7.105429e-15, 1.3588779, -2.8426973e-08)
+bones/0/rotation = Quaternion(0.15190314, -1.1782593e-07, -1.8108263e-08, 0.9883954)
+bones/1/rotation = Quaternion(-0.65980303, 8.9578506e-08, 7.865467e-08, 0.7514386)
+bones/2/rotation = Quaternion(-0.8369821, -1.2357193e-08, 1.804717e-08, 0.5472305)
+bones/3/rotation = Quaternion(0.029362136, -4.3274318e-16, 1.8771584e-15, 0.99956894)
+bones/4/rotation = Quaternion(-0.7308893, -2.9832847e-08, 3.1948193e-08, 0.6824961)
+bones/5/rotation = Quaternion(-0.8369821, -1.2357193e-08, 1.804717e-08, 0.5472305)
+bones/6/rotation = Quaternion(0.029362136, -4.3274318e-16, 1.8771584e-15, 0.99956894)
+bones/7/rotation = Quaternion(-0.7308893, 2.9832847e-08, -3.1948193e-08, 0.6824961)
+bones/8/rotation = Quaternion(-0.004888591, 0.18966757, -0.036783505, 0.98114693)
+bones/9/rotation = Quaternion(-0.015525146, -7.6281713e-06, 0.031671584, 0.9993778)
+bones/10/rotation = Quaternion(-0.004888598, -0.18966757, 0.03678351, 0.98114693)
+bones/11/rotation = Quaternion(-0.015525146, 7.6281713e-06, -0.031671584, 0.9993778)
+bones/12/rotation = Quaternion(-0.15190312, 3.0893555e-14, 3.621653e-08, 0.9883954)
+bones/14/rotation = Quaternion(0.6952283, 2.5536519e-15, -1.6575532e-07, 0.71878904)
+bones/15/position = Vector3(0.4776498, 0.0066961944, -0.07899533)
+bones/16/position = Vector3(0.4776498, 0.36234605, 0.093350455)
+bones/17/position = Vector3(0.984494, 2.2967005, -1.0429479)
+bones/18/position = Vector3(-0.4776498, 0.0066961944, -0.07899533)
+bones/19/position = Vector3(-0.4776498, 0.36234605, 0.093350455)
+bones/20/position = Vector3(-0.984494, 2.2967005, -1.0429479)
+
 [editable path="MamaDuck"]

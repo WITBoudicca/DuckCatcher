@@ -38,7 +38,7 @@ offset_top = 5.0
 offset_right = 206.0
 offset_bottom = 142.0
 theme_override_font_sizes/font_size = 100
-text = "title"
+text = "Mallard Park"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
