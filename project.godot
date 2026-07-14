@@ -29,6 +29,7 @@ GameManager="*uid://b5twmyg622lqr"
 AudioManager="*uid://u55hv8nhlpp4"
 SignalBus="*uid://cwoem4oalleta"
 DialogueManager="*uid://ewdaswrh7n26"
+SceneTransition="*uid://dnxkwtigq2m00"
 
 [debug]
 
