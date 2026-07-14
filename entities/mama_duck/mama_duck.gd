@@ -13,9 +13,10 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 
 func _process(delta: float) -> void:
-	while DialogueManager.dialogue_playing:
+	if DialogueManager.dialogue_playing:
 		anim.play("MamaDuck_Talk")
-		await anim.animation_finished
+	else:
+		anim.play("Netural")
 	
 func interact(_player) -> void:
 	if dialogue.is_empty() or DialogueManager.dialogue_playing:
@@ -31,8 +32,10 @@ func interact(_player) -> void:
 	if not GameManager.has_flag("met_mama_duck"):
 		GameManager.set_flag("met_mama_duck")
 		
-	if player.held_duck != null:
-		GameManager.return_duck()
+
+func return_duck(duck : Duckling):
+	duck.notify_returned_to_mama()
+	GameManager.return_duck()
 
 #region Dialog
 func _load_dialogue() -> void:
