@@ -4,6 +4,7 @@ extends DuckState
 
 func enter(data: Dictionary = {}) -> void:
 	duck.velocity = Vector3.ZERO
+	duck.anim.play("Duckling_Tag")
 	duck.set_physics_process(false)
 
 	var by = data.get("by")

@@ -184,9 +184,9 @@ grow_vertical = 0
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3515625
-anchor_top = 0.3939394
+anchor_top = 0.27272728
 anchor_right = 0.6484375
-anchor_bottom = 0.6060606
+anchor_bottom = 0.4848485
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_wt16y")
@@ -196,13 +196,13 @@ show_percentage = false
 script = ExtResource("11_t3d2v")
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="PlayerHud" unique_id=1830841938]
+[node name="Labels" type="Control" parent="PlayerHud" unique_id=1830841938]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="Instruction" type="Label" parent="PlayerHud/Control" unique_id=1902128685]
+[node name="Instruction" type="Label" parent="PlayerHud/Labels" unique_id=1902128685]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = 16.0
@@ -211,7 +211,7 @@ offset_right = 231.0
 offset_bottom = 39.0
 text = "Press 'ctrl + F' for Fullscreen"
 
-[node name="DuckCounter" type="Label" parent="PlayerHud/Control" unique_id=502867686]
+[node name="DuckCounter" type="Label" parent="PlayerHud/Labels" unique_id=502867686]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
@@ -224,7 +224,7 @@ offset_bottom = 39.0
 grow_horizontal = 0
 text = "Ducks left : 50"
 
-[node name="InteractionPrompt" type="Label" parent="PlayerHud/Control" unique_id=638094281]
+[node name="InteractionPrompt" type="Label" parent="PlayerHud/Labels" unique_id=638094281]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 1
