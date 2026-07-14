@@ -7,5 +7,5 @@
 render_priority = 0
 shader = ExtResource("1_ltxhs")
 shader_parameter/WindNoise = ExtResource("2_noknm")
-shader_parameter/BaseColor = Color(0.109804, 0.25098, 0.039216, 1)
-shader_parameter/GrassColor = Color(0.227451, 0.592157, 0.066667, 1)
+shader_parameter/BaseColor = Color(0.2784314, 0.4509804, 0.13725491, 1)
+shader_parameter/GrassColor = Color(0.43529412, 0.57254905, 0.14901961, 1)

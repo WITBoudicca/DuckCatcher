@@ -84,19 +84,19 @@ point_b = NodePath("../../Mark00")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93024576, 3.7416809)
 
 [node name="Mark01" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=65630759]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2803288, 0.93024576, 3.7416809)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4088, 0.93024576, 3.7416809)
 
 [node name="Mark02" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=172646134]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2803288, 0.93024576, 11.683403)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.47885, 0.93024576, 44.12726)
 
 [node name="Mark03" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=980133175]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4069314, 0.93024576, 11.683403)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.929216, 0.93024576, 50.83789)
 
 [node name="Mark04" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=1568643416]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.222427, 0.93024576, 11.683403)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.21717, 0.93024576, -17.042383)
 
 [node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=651153145]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.222427, 0.93024576, 3.5351563)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.942068, 0.93024576, -29.94337)
 
 [node name="NPCEntity" type="Node3D" parent="Entities" unique_id=1477069671]
 
@@ -203,37 +203,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 6.902793, -19.067
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5095196, 6.902793, -19.067562)
 
 [node name="Cube_5kg15" parent="Entities/PhyObjects/Cube" unique_id=1100575192 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 6.902793, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38161075, 1.1718082, 2.4645045)
 
 [node name="Cube_5kg16" parent="Entities/PhyObjects/Cube" unique_id=197696815 instance=ExtResource("5_fn3g3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 6.902793, -19.067562)
 
 [node name="Cube_5kg17" parent="Entities/PhyObjects/Cube" unique_id=1234818744 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 6.902793, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 1.1718082, 2.5209637)
 
 [node name="Cube_5kg18" parent="Entities/PhyObjects/Cube" unique_id=1596938895 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5095196, 6.902793, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2755305, 2.3094366, 2.4529119)
 
 [node name="Cube_5kg19" parent="Entities/PhyObjects/Cube" unique_id=1558265579 instance=ExtResource("5_fn3g3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 6.902793, -19.067562)
 
 [node name="Cube_5kg20" parent="Entities/PhyObjects/Cube" unique_id=1519519789 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 6.902793, -19.067562)
+transform = Transform3D(0.86759573, 0, -0.49727017, 0, 1, 0, 0.49727017, 0, 0.86759573, 0.9349918, 1.4198611, 2.7428706)
+
+[node name="Cube_5kg21" parent="Entities/PhyObjects/Cube" unique_id=1403108334 instance=ExtResource("5_fn3g3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44088393, 2.6590438, 3.1307993)
 
 [node name="Geometry" type="Node3D" parent="." unique_id=2071783606]
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Geometry" unique_id=2017364505]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.0662491, 6.3449707, -18.93375)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.2123413, 6.3449707, -16.400072)
 use_collision = true
 collision_mask = 0
 size = Vector3(9, 14.689941, 1)
-material = SubResource("StandardMaterial3D_g312j")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Geometry" unique_id=1920284557]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0662525, 6.3449707, -20.93375)
-use_collision = true
-collision_mask = 0
-size = Vector3(13, 14.689941, 1)
 material = SubResource("StandardMaterial3D_g312j")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Geometry" unique_id=966427809]

@@ -1,9 +1,7 @@
 [gd_resource type="NoiseTexture2D" format=3 uid="uid://bi1nu041plrr4"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_gijfe"]
-seed = 1
-fractal_type = 0
+[ext_resource type="FastNoiseLite" uid="uid://dftued81fs5hx" path="res://assets/Models/grass/resource/grass_noise.tres" id="1_yo0o8"]
 
 [resource]
-noise = SubResource("FastNoiseLite_gijfe")
+noise = ExtResource("1_yo0o8")
 seamless = true
