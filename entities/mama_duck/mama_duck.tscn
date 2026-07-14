@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://crlrogkenaott"]
+
+[ext_resource type="PackedScene" uid="uid://ewdaswrh7n26" path="res://system/ui/dialogue box/dialogue_box.tscn" id="1_v6p3e"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4t5ln"]
+radius = 0.50614834
+
+[sub_resource type="SphereMesh" id="SphereMesh_4t5ln"]
+
+[node name="MamaDuck" type="RigidBody3D" unique_id=1579581581]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2014872374]
+shape = SubResource("SphereShape3D_4t5ln")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=63884816]
+mesh = SubResource("SphereMesh_4t5ln")
+
+[node name="DialogueBox" parent="." unique_id=1807886980 instance=ExtResource("1_v6p3e")]
