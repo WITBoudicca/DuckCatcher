@@ -1,26 +1,13 @@
 [gd_scene format=3 uid="uid://bjh8onph4gvse"]
 
 [ext_resource type="Script" uid="uid://cqi7qqcft0j6y" path="res://entities/duckling/duckling.gd" id="1_c0u68"]
+[ext_resource type="PackedScene" uid="uid://bjym2kllpnsy5" path="res://assets/Models/Duckling.blend" id="2_8n0gj"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfv1e"]
-albedo_color = Color(0.77807033, 0.70419294, 1.1551381e-06, 1)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8n0gj"]
+points = PackedVector3Array(-0.4144935, 0.63404167, -0.7680922, 0.020526145, 1.4989762, 0.9304296, -0.033930283, 1.4993893, 0.92950827, -0.20767815, 3.8795729, -0.19941056, 0.92393416, 1.4144374, -0.39342317, 0.07409913, 2.3193753, -2.2208738, -0.95245606, 1.50889, 0.20548914, 0.59714276, 3.5920544, 0.14532793, -0.25326666, 3.6379695, 0.7116513, 0.6783386, 1.1158623, 0.65583974, -0.50833046, 2.0005367, -1.5574685, 0.50620717, 0.6459444, -0.6593883, -0.2548105, 0.6109597, 0.44418088, -0.4953253, 3.7642772, -0.027041316, 0.25216323, 2.44126, -2.1542344, 0.24101496, 3.6425512, 0.71605575, -0.68822, 1.3936301, 0.7039525, -0.8463619, 0.9111563, -0.17183542, -0.19395018, 2.3188415, -2.1592884, 0.9423925, 1.3442533, 0.26240125, 0.30949563, 3.8795729, -0.14195412, 0.17992087, 1.8918502, -2.046257, 0.3520404, 0.5005058, 0.0027439715, -0.86402583, 1.7441659, -0.50361174, 0.13177983, 3.9839284, 0.39244172, -0.46574715, 3.5623515, 0.5290839, 0.07608617, 0.77709895, 0.7197563, 0.18491995, 0.51341766, -0.7141238, 0.83735716, 0.9052416, 0.15721135, -0.20027615, 0.43906564, -0.10565218, -0.08836636, 1.9390578, -2.1316428, -0.664216, 1.1065812, -0.8696984)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_vdo37"]
-material = SubResource("StandardMaterial3D_sfv1e")
-radius = 0.4671631
-height = 0.9343262
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdo37"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_c0u68"]
-material = SubResource("StandardMaterial3D_vdo37")
-radius = 0.1
-height = 0.2
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vdo37"]
-radius = 0.4671631
-height = 0.9343262
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6f1ky"]
+points = PackedVector3Array(-0.5252868, 0.0073900013, -0.053482536, 0.5533101, 0.97827935, 0.036179334, 0.5533101, 0.9228963, 0.09147568, -0.5533101, 0.97827935, 0.036179334, -0.49801376, 0.037548125, 0.7831999, 0.8854348, 0.037548125, 0.5341064, 0.52510947, 0.03382982, -0.07967079, -0.8854348, 0.06523961, 0.5894894, 0.49801376, 0.037548125, 0.7831999, -0.5207257, 0.8707666, -0.07616326, 0.5207257, 0.8707666, -0.07616326, 0.7600836, 0.008433386, 0.44532448, -0.47106168, 0.00911954, 0.65455097, -0.52510947, 0.03382982, -0.07967079, -0.8854348, 0.037548125, 0.5341064, 0.8854348, 0.06523961, 0.5894894, -0.5533101, 0.9228963, 0.09147568, 0.5252868, 0.0073900013, -0.053482536, -0.5515171, 0.87411606, -0.053411208, 0.5515171, 0.87411606, -0.053411208, 0.5309932, 0.9316164, -0.05776234, 0.5533237, 0.032297473, -0.054701425, -0.5533237, 0.032297473, -0.054701425, -0.7600836, 0.008433386, 0.44532448, 0.47106168, 0.00911954, 0.65455097, -0.5309932, 0.9316164, -0.05776234, 0.581045, 0.9228963, 0.063827515, -0.581045, 0.9228963, 0.063827515, 0.8463028, 0.030644523, 0.5784845, -0.8463028, 0.030644523, 0.5784845, -0.5237631, 0.9516829, -0.026168043, 0.5237631, 0.9516829, -0.026168043)
 
 [node name="Duckling" type="CharacterBody3D" unique_id=192723076]
 collision_layer = 4
@@ -28,28 +15,50 @@ collision_mask = 11
 script = ExtResource("1_c0u68")
 rotation_speed = 5.0
 escape_speed = 12.0
-run_speed = 6.0
+
+[node name="Duckling" parent="." unique_id=1287765653 instance=ExtResource("2_8n0gj")]
+transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Duckling/Armature" parent_id_path=PackedInt32Array(1287765653, 1977758505) index="0" unique_id=1948047746]
+bones/0/position = Vector3(7.105429e-15, 1.3588779, -2.8426973e-08)
+bones/0/rotation = Quaternion(0.15143582, -0.0119063705, -0.07747103, 0.9853546)
+bones/1/rotation = Quaternion(-0.6573702, 0.05660883, 0.06447082, 0.7486678)
+bones/2/rotation = Quaternion(-0.58640665, -0.23805189, 0.046631318, 0.7728417)
+bones/3/rotation = Quaternion(0.0019100423, -8.752609e-09, 2.3811095e-08, 0.9999983)
+bones/4/rotation = Quaternion(-0.82578796, -2.3125152e-08, 4.2678813e-08, 0.56398064)
+bones/5/rotation = Quaternion(-0.9565455, 0.26850995, -0.08450605, 0.076038964)
+bones/6/rotation = Quaternion(0.62546575, 1.5288069e-09, -7.1067426e-08, 0.78025174)
+bones/7/rotation = Quaternion(-0.90199363, 4.618673e-08, -4.598024e-08, 0.43174937)
+bones/8/rotation = Quaternion(0.27429917, 0.13884677, -0.55377454, 0.7738316)
+bones/9/rotation = Quaternion(0.021979496, 0.0034139298, -0.024618162, 0.99944943)
+bones/10/rotation = Quaternion(0.17694286, -0.16316774, 0.40355778, 0.88272804)
+bones/11/rotation = Quaternion(0.0027433517, -0.0014586216, 0.0032966654, 0.9999898)
+bones/12/rotation = Quaternion(-0.1517267, -0.0073187985, -0.047621574, 0.9872475)
+bones/13/rotation = Quaternion(2.9407143e-09, 4.1170023e-09, -0.048358373, 0.9988301)
+bones/14/rotation = Quaternion(0.6952283, 4.7849213e-09, -1.6045534e-07, 0.71878904)
+bones/15/position = Vector3(0.4776498, 0.1427927, -0.9017606)
+bones/16/position = Vector3(0.69505733, 0.3859825, -0.028813556)
+bones/17/position = Vector3(2.5990934, 1.9750178, -0.003665328)
+bones/18/position = Vector3(-0.79314625, 0.38405466, 0.37878382)
+bones/19/position = Vector3(-0.9725461, 0.77682185, 0.98416394)
+bones/20/position = Vector3(-2.289783, 2.6060107, -0.003665328)
+
+[node name="AnimationPlayer" parent="Duckling" index="1" unique_id=139969865]
+autoplay = &"Duckling_Hide"
+playback_default_blend_time = 1.0
 
 [node name="LookAtPoint" type="Marker3D" parent="." unique_id=2088552158]
 transform = Transform3D(-0.9998477, -0.001975558, 0.017339263, 0, 0.9935719, 0.11320315, -0.01745144, 0.113185905, -0.9934206, 0, 0.2, 0)
 
 [node name="CameraPoint" type="Marker3D" parent="." unique_id=1541979539]
-transform = Transform3D(-0.9998477, -0.001975558, 0.017339263, 0, 0.9935719, 0.11320315, -0.01745144, 0.113185905, -0.9934206, 0.07328069, 0.4360706, -1.773105)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11480056, 0.49856916, -0.93190265)
 
-[node name="Camera3D" type="Camera3D" parent="CameraPoint" unique_id=1417723760]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=530278699]
+transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_8n0gj")
 
-[node name="Armature" type="Node3D" parent="." unique_id=399273888]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1488997418]
+transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_6f1ky")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature" unique_id=2047715662]
-mesh = SubResource("CapsuleMesh_vdo37")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Armature" unique_id=600612367]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22266707, 0.16883469, -0.36847976)
-mesh = SubResource("CapsuleMesh_c0u68")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Armature" unique_id=2068515011]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23139977, 0.16883469, -0.36847976)
-mesh = SubResource("CapsuleMesh_c0u68")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=421487624]
-shape = SubResource("CapsuleShape3D_vdo37")
+[editable path="Duckling"]

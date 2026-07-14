@@ -7,7 +7,7 @@ func enter(_data: Dictionary = {}) -> void:
 	duck.catch_count = 0
 	duck.set_physics_process(true)
 	duck.visible = true
-	# TODO: play idle/hiding animation
+	duck.anim.play("Duckling_Hide")
 
 
 func on_catch_attempt(_by: Node) -> void:

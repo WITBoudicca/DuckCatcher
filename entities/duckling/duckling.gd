@@ -13,6 +13,8 @@ signal returned_to_mama
 @export var initial_wait_location: Marker3D
 @export var paths_container: Node3D
 
+@onready var anim: AnimationPlayer = $Duckling/AnimationPlayer
+
 @export_group("Movement")
 @export var acceleration: float = 5.0
 @export var rotation_speed: float = 10.0
@@ -33,11 +35,8 @@ signal returned_to_mama
 @export var disappear_duration: float = 1.0
 
 var player: CharacterBody3D
-
 var catch_count := 0
-
 var last_wait_point: Node3D = null
-
 var _duck_paths: Array[DuckPath] = []
 var _current_state: DuckState
 
@@ -54,6 +53,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y += get_gravity().y * delta
 	_current_state.physics_update(delta)
 	move_and_slide()
 
