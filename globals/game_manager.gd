@@ -2,6 +2,7 @@
 extends Node
 
 var is_paused: bool = false
+var flags: Dictionary = {}
 
 
 func _ready() -> void:
@@ -26,6 +27,35 @@ func toggle_pause() -> void:
 		unpause()
 	else:
 		pause()
+#endregion
+
+
+#region FLAGS
+func set_flag(flag_name: String, value: bool = true) -> void:
+	flags[flag_name] = value
+	SignalBus.flag_changed.emit(flag_name, value)
+
+func has_flag(flag_name: String) -> bool:
+	return flags.get(flag_name, false)
+
+func clear_flag(flag_name: String) -> void:
+	flags.erase(flag_name)
+#endregion
+
+#region DUCKS
+var ducks_returned: int = 0
+var ducks_total: int = 0
+
+func set_ducks_total(amount: int) -> void:
+	ducks_total = amount
+	SignalBus.ducks_returned_changed.emit(ducks_returned, ducks_total)
+
+func return_duck() -> void:
+	ducks_returned += 1
+	SignalBus.ducks_returned_changed.emit(ducks_returned, ducks_total)
+
+	if ducks_returned >= ducks_total:
+		set_flag("duckling_returned")
 #endregion
 
 #region RELEASE BUILD
