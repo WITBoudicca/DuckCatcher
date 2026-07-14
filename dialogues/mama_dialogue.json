@@ -22,8 +22,12 @@
       "Though any help is appreciated!"
 	]
   ],
-  "duckling_returned": [
-	"You found them all! Thank you so much! ;3",
+"duckling_returned": [
+	"You found one! Thank you so much!",
+	"Keep looking for the otehrs, they have to be around here somewhere."
+  ],
+  "all_ducklings_returned": [
+	"You found them all! Thank you so much for your help! ;3",
 	"I don't know how I can repay you.",
     "Maybe a duck kiss would be reward enough."
   ]

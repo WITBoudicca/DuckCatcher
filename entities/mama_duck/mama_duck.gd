@@ -31,7 +31,11 @@ func interact(_player) -> void:
 	
 	if not GameManager.has_flag("met_mama_duck"):
 		GameManager.set_flag("met_mama_duck")
-		
+	
+	if GameManager.has_flag("all_ducklings_returned"):
+		await !DialogueManager.dialogue_playing
+		await  get_tree().create_timer(1.5).timeout
+		SceneTransition.load_scene("res://system/ending/ending.tscn")
 
 func return_duck(duck : Duckling):
 	duck.notify_returned_to_mama()
@@ -59,10 +63,13 @@ func _load_dialogue() -> void:
 
 func _get_dialogue_lines() -> Array[String]:
 	var raw: Array
-	if GameManager.has_flag("duckling_returned"):
-		raw = dialogue.get("duckling_returned", [])
+	if GameManager.has_flag("all_ducklings_returned"):
+		raw = dialogue.get("all_ducklings_returned", [])
 	elif GameManager.has_flag("met_mama_duck"):
 		raw = dialogue.get("reminder", [[]]).pick_random()
+	elif GameManager.has_flag("duckling_returned"):
+		raw = dialogue.get("duckling_returned", [])
+		GameManager.clear_flag("duckling_returned")
 	else:
 		raw = dialogue.get("first_meet", [])
 	

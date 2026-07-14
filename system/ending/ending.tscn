@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://el1gf8ca7fpe"]
+
+[ext_resource type="Script" uid="uid://byx8j7of6x0km" path="res://system/ending/ending.gd" id="1_n8bmi"]
+[ext_resource type="PackedScene" uid="uid://dgw65geuecput" path="res://assets/Models/tscn/park.tscn" id="2_utlfv"]
+[ext_resource type="Script" uid="uid://fuyhg4xnyp4o" path="res://world/environment.gd" id="3_xtcn3"]
+[ext_resource type="Texture2D" uid="uid://b7xvjgkwbclne" path="res://assets/sprites/sky_26_2k.png" id="4_tu83k"]
+[ext_resource type="PackedScene" uid="uid://3rlfjcu7rlk8" path="res://assets/Models/MamaDuck.blend" id="5_w7ry7"]
+[ext_resource type="PackedScene" uid="uid://bjym2kllpnsy5" path="res://assets/Models/Duckling.blend" id="6_2s13j"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1gxhp"]
+panorama = ExtResource("4_tu83k")
+
+[sub_resource type="Sky" id="Sky_4papg"]
+sky_material = SubResource("PanoramaSkyMaterial_1gxhp")
+
+[sub_resource type="Environment" id="Environment_rb16q"]
+background_mode = 2
+sky = SubResource("Sky_4papg")
+sky_rotation = Vector3(0, -0.7452556, 0)
+tonemap_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_strength = 1.1
+glow_bloom = 0.5
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2lgem"]
+panorama = ExtResource("4_tu83k")
+
+[sub_resource type="Sky" id="Sky_ror5d"]
+sky_material = SubResource("PanoramaSkyMaterial_2lgem")
+
+[sub_resource type="Environment" id="Environment_d3eyy"]
+background_mode = 2
+sky = SubResource("Sky_ror5d")
+
+[node name="Node3D" type="Node3D" unique_id=729489284]
+script = ExtResource("1_n8bmi")
+
+[node name="Park" parent="." unique_id=1210955865 instance=ExtResource("2_utlfv")]
+
+[node name="Environment" type="Node3D" parent="." unique_id=698193006]
+script = ExtResource("3_xtcn3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1484306355]
+environment = SubResource("Environment_rb16q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment" unique_id=263136132]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 25.347557, 22.855164, -0.073916435)
+light_color = Color(0.96183294, 0.5412191, 1.155138e-05, 1)
+light_energy = 1.929
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1555806001]
+transform = Transform3D(0.36446953, -0.12385514, 0.922942, 0.015968034, 0.9918011, 0.12678997, -0.93107843, -0.031473514, 0.363459, -32.362858, 6.4438143, 9.789783)
+environment = SubResource("Environment_d3eyy")
+fov = 29.5
+near = 0.1
+
+[node name="MamaDuck" parent="." unique_id=54285368 instance=ExtResource("5_w7ry7")]
+transform = Transform3D(0.8362869, 0, 0.5482921, 0, 1, 0, -0.5482921, 0, 0.8362869, -67.17612, 0, -13.082007)
+
+[node name="Duckling" parent="." unique_id=1455438544 instance=ExtResource("6_2s13j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -56.192894, -1.9771221, 0)
+
+[node name="Duckling5" parent="." unique_id=1728406247 instance=ExtResource("6_2s13j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -53.119404, -1.9771221, -4.1216555)
+
+[node name="Duckling2" parent="." unique_id=324599602 instance=ExtResource("6_2s13j")]
+transform = Transform3D(0.3483265, 0, -0.35870412, 0, 0.5, 0, 0.35870412, 0, 0.3483265, -64.69229, 0.030605435, -14.768483)
+
+[node name="Duckling3" parent="." unique_id=520962376 instance=ExtResource("6_2s13j")]
+transform = Transform3D(-0.11013769, 0, 0.48771885, 0, 0.5, 0, -0.48771885, 0, -0.11013769, -67.99534, -0.5152991, -11.710436)
+
+[node name="Duckling4" parent="." unique_id=1449404757 instance=ExtResource("6_2s13j")]
+transform = Transform3D(0.4435604, 0, 0.23076878, 0, 0.5, 0, -0.23076878, 0, 0.4435604, -54.666004, -0.5152991, -12.141558)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=861997743]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=841509915]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 442.0
+offset_bottom = 272.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Boudicca: Modeling and Design
+
+MuntzStudio: Programming
+
+Infiniverse Studio: Programming and Design
+
+StarrySkies: Programming
+
+granularbiomes: Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
