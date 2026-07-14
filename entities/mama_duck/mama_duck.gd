@@ -3,11 +3,20 @@ extends RigidBody3D
 @export_file("*.json") var dialogue_file: String
 
 var dialogue: Dictionary = {}
+var player
+@onready var anim = $MamaDuck/AnimationPlayer
 
 
 func _ready() -> void:
 	_load_dialogue()
+	freeze = true
+	player = get_tree().get_first_node_in_group("player")
 
+func _process(delta: float) -> void:
+	while DialogueManager.dialogue_playing:
+		anim.play("MamaDuck_Talk")
+		await anim.animation_finished
+	
 func interact(_player) -> void:
 	if dialogue.is_empty() or DialogueManager.dialogue_playing:
 		return
@@ -21,6 +30,9 @@ func interact(_player) -> void:
 	
 	if not GameManager.has_flag("met_mama_duck"):
 		GameManager.set_flag("met_mama_duck")
+		
+	if player.held_duck != null:
+		GameManager.return_duck()
 
 #region Dialog
 func _load_dialogue() -> void:
