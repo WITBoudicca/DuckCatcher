@@ -35,6 +35,7 @@ signal returned_to_mama
 @export var disappear_duration: float = 1.0
 
 var player: CharacterBody3D
+var mama_duck: Node = null 
 var catch_count := 0
 var last_wait_point: Node3D = null
 var _duck_paths: Array[DuckPath] = []
@@ -42,13 +43,17 @@ var _current_state: DuckState
 
 
 func _ready() -> void:
+	add_to_group("ducklings")
+	if !mama_duck:
+		mama_duck = get_tree().get_first_node_in_group("mama_duck")
+	
 	if player == null:
 		player = get_tree().get_first_node_in_group("player")
-
+	
 	for child in paths_container.get_children():
 		if child is DuckPath:
 			_duck_paths.append(child)
-
+	
 	change_state(DuckStateHiding.new(self))
 
 
@@ -66,7 +71,6 @@ func change_state(new_state: DuckState, data: Dictionary = {}) -> void:
 	_current_state.enter(data)
 
 
-@warning_ignore("unused_parameter")
 func catch(by: Node = null) -> void:
 	_current_state.on_catch_attempt(by)
 

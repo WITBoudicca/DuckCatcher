@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bpd74myqn03c1"]
 
-[ext_resource type="Texture2D" uid="uid://2mfveho8ib0n" path="res://assets/prototypes/Proto Wall.png" id="1_6xmxd"]
 [ext_resource type="Script" uid="uid://1kr3lte12na5" path="res://world/world.gd" id="1_sc4t8"]
 [ext_resource type="PackedScene" uid="uid://bjh8onph4gvse" path="res://entities/duckling/duckling.tscn" id="2_4717r"]
 [ext_resource type="PackedScene" uid="uid://clnpmk5pcvcey" path="res://entities/player/player_controller.tscn" id="2_tcf2h"]
@@ -13,11 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://b7xvjgkwbclne" path="res://assets/sprites/sky_26_2k.png" id="10_fyhu2"]
 [ext_resource type="Script" uid="uid://fuyhg4xnyp4o" path="res://world/environment.gd" id="10_ov2xu"]
 [ext_resource type="PackedScene" uid="uid://w5sr2p0n3hwl" path="res://system/ui/pause menu/pause_menu.tscn" id="13_ocfjn"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g312j"]
-albedo_texture = ExtResource("1_6xmxd")
-uv1_triplanar = true
-uv2_world_triplanar = true
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fyhu2"]
 panorama = ExtResource("10_fyhu2")
@@ -43,7 +37,7 @@ script = ExtResource("1_sc4t8")
 [node name="PlayerEntity" type="Node3D" parent="Entities" unique_id=1796305204]
 
 [node name="Player" parent="Entities/PlayerEntity" unique_id=957528218 instance=ExtResource("2_tcf2h")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.3858137, 1.3923454, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -21.35697, 0.3878951, 0)
 
 [node name="DucklingEntity" type="Node3D" parent="Entities" unique_id=1813489295]
 
@@ -100,6 +94,218 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.21717, 0.93024576, -17.04
 [node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=651153145]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.942068, 0.93024576, -29.94337)
 
+[node name="Duck2" type="Node3D" parent="Entities/DucklingEntity" unique_id=1552036207]
+
+[node name="Duckling" parent="Entities/DucklingEntity/Duck2" unique_id=366160257 node_paths=PackedStringArray("start_location", "initial_wait_location", "paths_container") instance=ExtResource("2_4717r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5619204, 3.6971717)
+start_location = NodePath("../Mark00")
+initial_wait_location = NodePath("../Mark01")
+paths_container = NodePath("../Paths1")
+
+[node name="Paths1" type="Node3D" parent="Entities/DucklingEntity/Duck2" unique_id=845373843]
+
+[node name="PathA" type="Node" parent="Entities/DucklingEntity/Duck2/Paths1" unique_id=1371999378]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark01")
+point_b = NodePath("../../Mark02")
+
+[node name="PathB" type="Node" parent="Entities/DucklingEntity/Duck2/Paths1" unique_id=1275163089]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark02")
+point_b = NodePath("../../Mark03")
+
+[node name="PathC" type="Node" parent="Entities/DucklingEntity/Duck2/Paths1" unique_id=2071197610]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark03")
+point_b = NodePath("../../Mark04")
+
+[node name="PathD" type="Node" parent="Entities/DucklingEntity/Duck2/Paths1" unique_id=1007963192]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark04")
+point_b = NodePath("../../Mark05")
+
+[node name="PathE" type="Node" parent="Entities/DucklingEntity/Duck2/Paths1" unique_id=2091787232]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark05")
+point_b = NodePath("../../Mark00")
+
+[node name="Mark00" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=1663445398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93024576, 3.7416809)
+
+[node name="Mark01" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=1262487061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4088, 0.93024576, 3.7416809)
+
+[node name="Mark02" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=959824287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.47885, 0.93024576, 44.12726)
+
+[node name="Mark03" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=20472475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.929216, 0.93024576, 50.83789)
+
+[node name="Mark04" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=475105349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.21717, 0.93024576, -17.042383)
+
+[node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=1665087848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.942068, 0.93024576, -29.94337)
+
+[node name="Duck3" type="Node3D" parent="Entities/DucklingEntity" unique_id=807264182]
+
+[node name="Duckling" parent="Entities/DucklingEntity/Duck3" unique_id=506097864 node_paths=PackedStringArray("start_location", "initial_wait_location", "paths_container") instance=ExtResource("2_4717r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5619204, 3.6971717)
+start_location = NodePath("../Mark00")
+initial_wait_location = NodePath("../Mark01")
+paths_container = NodePath("../Paths1")
+
+[node name="Paths1" type="Node3D" parent="Entities/DucklingEntity/Duck3" unique_id=1313316851]
+
+[node name="PathA" type="Node" parent="Entities/DucklingEntity/Duck3/Paths1" unique_id=961456847]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark01")
+point_b = NodePath("../../Mark02")
+
+[node name="PathB" type="Node" parent="Entities/DucklingEntity/Duck3/Paths1" unique_id=1108662070]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark02")
+point_b = NodePath("../../Mark03")
+
+[node name="PathC" type="Node" parent="Entities/DucklingEntity/Duck3/Paths1" unique_id=1305116653]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark03")
+point_b = NodePath("../../Mark04")
+
+[node name="PathD" type="Node" parent="Entities/DucklingEntity/Duck3/Paths1" unique_id=1610518397]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark04")
+point_b = NodePath("../../Mark05")
+
+[node name="PathE" type="Node" parent="Entities/DucklingEntity/Duck3/Paths1" unique_id=993588537]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark05")
+point_b = NodePath("../../Mark00")
+
+[node name="Mark00" type="Marker3D" parent="Entities/DucklingEntity/Duck3" unique_id=834676418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93024576, 3.7416809)
+
+[node name="Mark01" type="Marker3D" parent="Entities/DucklingEntity/Duck3" unique_id=1477286426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4088, 0.93024576, 3.7416809)
+
+[node name="Mark02" type="Marker3D" parent="Entities/DucklingEntity/Duck3" unique_id=2009059976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.47885, 0.93024576, 44.12726)
+
+[node name="Mark03" type="Marker3D" parent="Entities/DucklingEntity/Duck3" unique_id=1203362289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.929216, 0.93024576, 50.83789)
+
+[node name="Mark04" type="Marker3D" parent="Entities/DucklingEntity/Duck3" unique_id=1463644703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.21717, 0.93024576, -17.042383)
+
+[node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck3" unique_id=1727818152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.942068, 0.93024576, -29.94337)
+
+[node name="Duck4" type="Node3D" parent="Entities/DucklingEntity" unique_id=2126868734]
+
+[node name="Duckling" parent="Entities/DucklingEntity/Duck4" unique_id=1990286889 node_paths=PackedStringArray("start_location", "initial_wait_location", "paths_container") instance=ExtResource("2_4717r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5619204, 3.6971717)
+start_location = NodePath("../Mark00")
+initial_wait_location = NodePath("../Mark01")
+paths_container = NodePath("../Paths1")
+
+[node name="Paths1" type="Node3D" parent="Entities/DucklingEntity/Duck4" unique_id=1766788376]
+
+[node name="PathA" type="Node" parent="Entities/DucklingEntity/Duck4/Paths1" unique_id=468722855]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark01")
+point_b = NodePath("../../Mark02")
+
+[node name="PathB" type="Node" parent="Entities/DucklingEntity/Duck4/Paths1" unique_id=917707357]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark02")
+point_b = NodePath("../../Mark03")
+
+[node name="PathC" type="Node" parent="Entities/DucklingEntity/Duck4/Paths1" unique_id=168814613]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark03")
+point_b = NodePath("../../Mark04")
+
+[node name="PathD" type="Node" parent="Entities/DucklingEntity/Duck4/Paths1" unique_id=394974088]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark04")
+point_b = NodePath("../../Mark05")
+
+[node name="PathE" type="Node" parent="Entities/DucklingEntity/Duck4/Paths1" unique_id=1930798964]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark05")
+point_b = NodePath("../../Mark00")
+
+[node name="Mark00" type="Marker3D" parent="Entities/DucklingEntity/Duck4" unique_id=1441590559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93024576, 3.7416809)
+
+[node name="Mark01" type="Marker3D" parent="Entities/DucklingEntity/Duck4" unique_id=1480566669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4088, 0.93024576, 3.7416809)
+
+[node name="Mark02" type="Marker3D" parent="Entities/DucklingEntity/Duck4" unique_id=1176798729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.47885, 0.93024576, 44.12726)
+
+[node name="Mark03" type="Marker3D" parent="Entities/DucklingEntity/Duck4" unique_id=2134267152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.929216, 0.93024576, 50.83789)
+
+[node name="Mark04" type="Marker3D" parent="Entities/DucklingEntity/Duck4" unique_id=210147486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.21717, 0.93024576, -17.042383)
+
+[node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck4" unique_id=1371902470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.942068, 0.93024576, -29.94337)
+
+[node name="Duck5" type="Node3D" parent="Entities/DucklingEntity" unique_id=1708576102]
+
+[node name="Duckling" parent="Entities/DucklingEntity/Duck5" unique_id=1685550723 node_paths=PackedStringArray("start_location", "initial_wait_location", "paths_container") instance=ExtResource("2_4717r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5619204, 3.6971717)
+start_location = NodePath("../Mark00")
+initial_wait_location = NodePath("../Mark01")
+paths_container = NodePath("../Paths1")
+
+[node name="Paths1" type="Node3D" parent="Entities/DucklingEntity/Duck5" unique_id=89796808]
+
+[node name="PathA" type="Node" parent="Entities/DucklingEntity/Duck5/Paths1" unique_id=905800115]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark01")
+point_b = NodePath("../../Mark02")
+
+[node name="PathB" type="Node" parent="Entities/DucklingEntity/Duck5/Paths1" unique_id=1872855560]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark02")
+point_b = NodePath("../../Mark03")
+
+[node name="PathC" type="Node" parent="Entities/DucklingEntity/Duck5/Paths1" unique_id=106265507]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark03")
+point_b = NodePath("../../Mark04")
+
+[node name="PathD" type="Node" parent="Entities/DucklingEntity/Duck5/Paths1" unique_id=2086971582]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark04")
+point_b = NodePath("../../Mark05")
+
+[node name="PathE" type="Node" parent="Entities/DucklingEntity/Duck5/Paths1" unique_id=1868499461]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark05")
+point_b = NodePath("../../Mark00")
+
+[node name="Mark00" type="Marker3D" parent="Entities/DucklingEntity/Duck5" unique_id=987311378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93024576, 3.7416809)
+
+[node name="Mark01" type="Marker3D" parent="Entities/DucklingEntity/Duck5" unique_id=1602885261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4088, 0.93024576, 3.7416809)
+
+[node name="Mark02" type="Marker3D" parent="Entities/DucklingEntity/Duck5" unique_id=2104999531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.47885, 0.93024576, 44.12726)
+
+[node name="Mark03" type="Marker3D" parent="Entities/DucklingEntity/Duck5" unique_id=61411596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.929216, 0.93024576, 50.83789)
+
+[node name="Mark04" type="Marker3D" parent="Entities/DucklingEntity/Duck5" unique_id=2089784596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.21717, 0.93024576, -17.042383)
+
+[node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck5" unique_id=1044963548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.942068, 0.93024576, -29.94337)
+
 [node name="NPCEntity" type="Node3D" parent="Entities" unique_id=1477069671]
 
 [node name="PhyObjects" type="Node3D" parent="Entities" unique_id=615201756]
@@ -107,153 +313,149 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.942068, 0.93024576, -29.94
 [node name="Sphere" type="Node3D" parent="Entities/PhyObjects" unique_id=1108530357]
 
 [node name="Sphere 1kg" parent="Entities/PhyObjects/Sphere" unique_id=840454992 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.137433, 2.7424598, -7.018307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.137433, 1.0577817, -7.018307)
 
 [node name="Sphere 1kg2" parent="Entities/PhyObjects/Sphere" unique_id=1680205272 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7179947, 2.7424598, -6.266994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7179947, 1.0937319, -6.266994)
 
 [node name="Sphere 1kg6" parent="Entities/PhyObjects/Sphere" unique_id=1425379813 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0410786, 3.0321107, -0.432665)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0410786, 0.83853436, -0.432665)
 
 [node name="Sphere 1kg3" parent="Entities/PhyObjects/Sphere" unique_id=114488510 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4627905, 2.7424598, -7.018307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4627905, 1.067477, -7.018307)
 
 [node name="Sphere 1kg4" parent="Entities/PhyObjects/Sphere" unique_id=741871978 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7179947, 2.7424598, -7.8653545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7179947, 1.0262849, -7.8653545)
 
 [node name="Sphere 1kg5" parent="Entities/PhyObjects/Sphere" unique_id=1835263689 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7179947, 2.7424598, -4.1307354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7179947, 1.1413844, -4.1307354)
 
 [node name="Sphere 1kg8" parent="Entities/PhyObjects/Sphere" unique_id=1372063537 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.871545, 2.4226162, -9.053539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.871545, 0.9678495, -9.053539)
 
 [node name="Sphere 1kg9" parent="Entities/PhyObjects/Sphere" unique_id=380457213 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.917865, 4.422616, -9.053539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.917865, 2.9182868, -9.053539)
 
 [node name="Sphere 1kg10" parent="Entities/PhyObjects/Sphere" unique_id=1292018419 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.917865, 4.422616, -9.053539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.917865, 0.9696884, -9.053539)
 
 [node name="Sphere 1kg11" parent="Entities/PhyObjects/Sphere" unique_id=1903499351 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.917864, 2.4226162, -9.053539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.917864, 0.9722369, -9.053539)
 
 [node name="Sphere 1kg17" parent="Entities/PhyObjects/Sphere" unique_id=2062278776 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.917865, 2.4226162, -9.053539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.917865, 0.9543059, -9.053539)
 
 [node name="Sphere 1kg12" parent="Entities/PhyObjects/Sphere" unique_id=285617979 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8626127, 2.7424598, -4.6909676)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8626127, 1.3422921, -4.6909676)
 
 [node name="Sphere 1kg13" parent="Entities/PhyObjects/Sphere" unique_id=606812138 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.282051, 2.7424598, -3.9396553)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.282051, 1.2590368, -3.9396553)
 
 [node name="Sphere 1kg14" parent="Entities/PhyObjects/Sphere" unique_id=1297148018 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5372553, 2.7424598, -4.6909676)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5372553, 1.3451035, -4.6909676)
 
 [node name="Sphere 1kg15" parent="Entities/PhyObjects/Sphere" unique_id=866520583 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.282051, 2.7424598, -5.5380135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.282051, 1.4197245, -5.5380135)
 
 [node name="Sphere 1kg16" parent="Entities/PhyObjects/Sphere" unique_id=1275651523 instance=ExtResource("3_h5o24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.282051, 2.7424598, -1.8033962)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.282051, 0.9550581, -1.8033962)
 
 [node name="Sphere_5kg" parent="Entities/PhyObjects/Sphere" unique_id=185412880 instance=ExtResource("4_mmdvd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.685432, 3.4652374, -5.5941124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.685432, 1.4505305, -5.5941124)
 
 [node name="Sphere_5kg2" parent="Entities/PhyObjects/Sphere" unique_id=602706242 instance=ExtResource("4_mmdvd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6854324, 5.4652376, -7.5941124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6854324, 1.8517165, -7.5941124)
 
 [node name="Cube" type="Node3D" parent="Entities/PhyObjects" unique_id=587303904]
 
 [node name="Cube_5kg" parent="Entities/PhyObjects/Cube" unique_id=107017057 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 3.1548743, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 0.7596706, -19.067562)
 
 [node name="Cube_5kg2" parent="Entities/PhyObjects/Cube" unique_id=507569303 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5095196, 3.1548743, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5095196, 0.76144004, -19.067562)
 
 [node name="Cube_5kg3" parent="Entities/PhyObjects/Cube" unique_id=703171330 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 3.1548743, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 0.80570626, -19.067562)
 
 [node name="Cube_5kg4" parent="Entities/PhyObjects/Cube" unique_id=566263836 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 3.1548743, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 0.8825107, -19.067562)
 
 [node name="Cube_5kg5" parent="Entities/PhyObjects/Cube" unique_id=773609874 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 4.48625, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 1.7596706, -19.067562)
 
 [node name="Cube_5kg6" parent="Entities/PhyObjects/Cube" unique_id=1936819019 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5095196, 4.48625, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5095196, 1.76144, -19.067562)
 
 [node name="Cube_5kg7" parent="Entities/PhyObjects/Cube" unique_id=69565137 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 4.48625, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 1.8057063, -19.067562)
 
 [node name="Cube_5kg8" parent="Entities/PhyObjects/Cube" unique_id=1829640588 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 4.48625, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 1.8825107, -19.067562)
 
 [node name="Cube_5kg9" parent="Entities/PhyObjects/Cube" unique_id=2005466434 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 5.7686024, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 2.7596707, -19.067562)
 
 [node name="Cube_5kg10" parent="Entities/PhyObjects/Cube" unique_id=1720591091 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5095196, 5.7686024, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5095196, 2.76144, -19.067562)
 
 [node name="Cube_5kg11" parent="Entities/PhyObjects/Cube" unique_id=1116245511 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 5.7686024, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 2.8057063, -19.067562)
 
 [node name="Cube_5kg12" parent="Entities/PhyObjects/Cube" unique_id=1356206042 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 5.7686024, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 2.8825107, -19.067562)
 
 [node name="Cube_5kg13" parent="Entities/PhyObjects/Cube" unique_id=669897460 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 6.902793, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 3.7596698, -19.067562)
 
 [node name="Cube_5kg14" parent="Entities/PhyObjects/Cube" unique_id=1120762330 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5095196, 6.902793, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5095196, 3.7614388, -19.067562)
 
 [node name="Cube_5kg15" parent="Entities/PhyObjects/Cube" unique_id=1100575192 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38161075, 1.1718082, 2.4645045)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38161075, 0.68562347, 2.4645045)
 
 [node name="Cube_5kg16" parent="Entities/PhyObjects/Cube" unique_id=197696815 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 6.902793, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.820307, 3.88251, -19.067562)
 
 [node name="Cube_5kg17" parent="Entities/PhyObjects/Cube" unique_id=1234818744 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 1.1718082, 2.5209637)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6326311, 0.7363587, 2.5209637)
 
 [node name="Cube_5kg18" parent="Entities/PhyObjects/Cube" unique_id=1596938895 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2755305, 2.3094366, 2.4529119)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2755305, 1.7363586, 2.4529119)
 
 [node name="Cube_5kg19" parent="Entities/PhyObjects/Cube" unique_id=1558265579 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 6.902793, -19.067562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6302043, 3.8057053, -19.067562)
 
 [node name="Cube_5kg20" parent="Entities/PhyObjects/Cube" unique_id=1519519789 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(0.86759573, 0, -0.49727017, 0, 1, 0, 0.49727017, 0, 0.86759573, 0.9349918, 1.4198611, 2.7428706)
+transform = Transform3D(0.86759573, 0, -0.49727017, 0, 1, 0, 0.49727017, 0, 0.86759573, 1.9691496, 0.6927892, 2.7428706)
 
 [node name="Cube_5kg21" parent="Entities/PhyObjects/Cube" unique_id=1403108334 instance=ExtResource("5_fn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44088393, 2.6590438, 3.1307993)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44088393, 0.6330334, 3.1307993)
 
 [node name="MamaDuckEntity" type="Node3D" parent="Entities" unique_id=1219468229]
 transform = Transform3D(1.5807177, 0, 1.2252884, 0, 2, 0, -1.2252884, 0, 1.5807177, -26.22815, 2.556059, -5.075838)
 
 [node name="MamaDuck" parent="Entities/MamaDuckEntity" unique_id=1579581581 instance=ExtResource("8_ocfjn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7527179, 0)
+transform = Transform3D(0.9755431, 0, 0.21980838, 0, 1, 0, -0.21980838, 0, 0.9755431, 0.1599598, -1.7527179, 0.12399292)
+
+[node name="DuckMarkers" type="Node3D" parent="Entities/MamaDuckEntity" unique_id=1064182444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3570869, 0)
+
+[node name="Marker3D" type="Marker3D" parent="Entities/MamaDuckEntity/DuckMarkers" unique_id=2083353162 groups=["duck_return_markers"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2752342, -1.4280641, 1.2461958)
+
+[node name="Marker3D2" type="Marker3D" parent="Entities/MamaDuckEntity/DuckMarkers" unique_id=1194036013 groups=["duck_return_markers"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5057888, -1.4280641, 0.47366524)
+
+[node name="Marker3D3" type="Marker3D" parent="Entities/MamaDuckEntity/DuckMarkers" unique_id=992743087 groups=["duck_return_markers"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8784647, -1.4280641, 0.6900158)
+
+[node name="Marker3D4" type="Marker3D" parent="Entities/MamaDuckEntity/DuckMarkers" unique_id=685494916 groups=["duck_return_markers"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98501587, -1.4280641, 0.023420334)
+
+[node name="Marker3D5" type="Marker3D" parent="Entities/MamaDuckEntity/DuckMarkers" unique_id=1850129722 groups=["duck_return_markers"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45804024, -1.4280641, 0.45153427)
 
 [node name="Geometry" type="Node3D" parent="." unique_id=2071783606]
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Geometry" unique_id=2017364505]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.2123413, 6.3449707, -16.400072)
-use_collision = true
-collision_mask = 0
-size = Vector3(9, 14.689941, 1)
-material = SubResource("StandardMaterial3D_g312j")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Geometry" unique_id=966427809]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.293756, 0.72752285, -2.181542)
-use_collision = true
-size = Vector3(1, 1.7254639, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Geometry" unique_id=1935995310]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.293756, 0.1150502, -0.5926974)
-use_collision = true
-size = Vector3(1, 1.7254639, 1)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Geometry" unique_id=706085154]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.293756, 1.4121035, -3.7736664)
-use_collision = true
-size = Vector3(1, 1.7254639, 1)
 
 [node name="Park" parent="Geometry" unique_id=1853969883 instance=ExtResource("9_4papg")]
 transform = Transform3D(0.5158439, 0, 0, 0, 0.5158439, 0, 0, 0, 0.5158439, 0, 0, 0)

@@ -6,7 +6,7 @@ func enter(data: Dictionary = {}) -> void:
 	duck.velocity = Vector3.ZERO
 	duck.anim.play("Duckling_Tag")
 	duck.set_physics_process(false)
-
+	
 	var by = data.get("by")
 	if by and by.has_method("hold_duck"):
 		by.hold_duck(duck)
@@ -15,6 +15,6 @@ func enter(data: Dictionary = {}) -> void:
 
 
 func on_returned_to_mama() -> void:
+	GameManager.return_duck()
 	duck.set_physics_process(true)
 	duck.returned_to_mama.emit()
-	duck.change_state(DuckStateHiding.new(duck))

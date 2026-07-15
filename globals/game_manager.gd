@@ -42,6 +42,14 @@ func clear_flag(flag_name: String) -> void:
 	flags.erase(flag_name)
 #endregion
 
+#region RESET
+func reset_game_state() -> void:
+	flags.clear()
+	ducks_returned = 0
+	ducks_total = 0
+	SignalBus.ducks_returned_changed.emit(ducks_returned, ducks_total)
+#endregion
+
 #region DUCKS
 var ducks_returned: int = 0
 var ducks_total: int = 0
