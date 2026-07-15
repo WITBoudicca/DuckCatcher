@@ -2,8 +2,10 @@
   "first_meet": [
 	"Oh! Hello there brave adventurer! Might I request you a favour?",
 	"My Ducklings have all wandered off to play, but it's time for them to come home.",
-	"They're all playing hide and seek within the park. I beseach you!",
-	"Return them to me... and I will reward you c;"
+	"I worry their magic will be stolen...",
+	"By realestate agents... or worse...",
+	"pharmacists!",
+	"Please, return them to me... and you will surely be handsomely rewarded c;"
   ],
 
   "reminder": [
@@ -12,12 +14,14 @@
 	  "I'm sure they would love a good chase to tucker them out."
 	],
 	[
-	  "Any luck finding my ducklings?",
-      "They can't have gone far..."
+	  "You shouldn't have too much trouble",
+      "They're all very bad at hiding afterall."
 	],
 	[
-	  "It's getting late... I hope they're okay.",
-      "Please keep looking!"
+	  "I only get to see them on weekends you see.",
+      "Duck court proceedings can be very harsh on a single mother...",
+	  "I only lost them in the park one time!",
+	  "besides this one of course."
 	],
 	[
 	  "Thank you for helping me look.",
@@ -25,13 +29,13 @@
 	],
 	[
 	  "How long are you planning to take?",
-      "Though any help is appreciated!"
+      "Though any help is appreciated!",
 	]
   ],
 
 "duckling_returned": [
 	"You found one! Thank you so much!",
-	"Keep looking for the otehrs, they have to be around here somewhere."
+	"Keep looking for the others, they have to be around here somewhere."
   ],
 
 "all_ducklings_returned": [

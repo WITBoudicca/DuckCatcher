@@ -435,7 +435,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44088393, 0.6330334, 3.1307
 transform = Transform3D(1.5807177, 0, 1.2252884, 0, 2, 0, -1.2252884, 0, 1.5807177, -26.22815, 2.556059, -5.075838)
 
 [node name="MamaDuck" parent="Entities/MamaDuckEntity" unique_id=1579581581 instance=ExtResource("8_ocfjn")]
-transform = Transform3D(0.9755431, 0, 0.21980838, 0, 1, 0, -0.21980838, 0, 0.9755431, 0.1599598, -1.7527179, 0.12399292)
+transform = Transform3D(-0.46717554, 0, -0.43954828, 0, 0.641448, 0, 0.43954828, 0, -0.46717554, 0.1599598, -1.7527179, 0.12399292)
 
 [node name="DuckMarkers" type="Node3D" parent="Entities/MamaDuckEntity" unique_id=1064182444]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3570869, 0)
@@ -457,7 +457,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45804024, -1.4280641, 0.45
 
 [node name="Geometry" type="Node3D" parent="." unique_id=2071783606]
 
-[node name="Park" parent="Geometry" unique_id=1853969883 instance=ExtResource("9_4papg")]
+[node name="Park" parent="Geometry" unique_id=1210955865 instance=ExtResource("9_4papg")]
 transform = Transform3D(0.5158439, 0, 0, 0, 0.5158439, 0, 0, 0, 0.5158439, 0, 0, 0)
 
 [node name="Environment" type="Node3D" parent="." unique_id=792366660]
