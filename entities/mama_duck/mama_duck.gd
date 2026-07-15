@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	player = get_tree().get_first_node_in_group("player")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_face_player(self)
 	if DialogueManager.dialogue_playing:
 		anim.play("MamaDuck_Talk")
@@ -41,15 +41,10 @@ func interact(_player) -> void:
 		GameManager.set_flag("met_mama_duck")
 	
 	if GameManager.has_flag("all_ducklings_returned"):
-		print(DialogueManager.dialogue_playing)
 		while DialogueManager.dialogue_playing:
 			await get_tree().process_frame
 		await get_tree().create_timer(0.5).timeout
 		SceneTransition.load_scene("res://system/ending/ending.tscn")
-
-func return_duck(duck : Duckling):
-	duck.notify_returned_to_mama()
-	GameManager.return_duck()
 
 
 #region Marker

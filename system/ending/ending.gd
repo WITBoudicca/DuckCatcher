@@ -2,11 +2,10 @@ extends Node3D
 
 @onready var credits = $CanvasLayer/RichTextLabel
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	credits.modulate.a = 0.0
 	await get_tree().create_timer(2).timeout
 	var tween = get_tree().create_tween()
 	tween.tween_property(credits, "modulate:a", 2.0, 1.0)
 	await get_tree().create_timer(5).timeout
-	SceneTransition.load_scene("res://system/start menu/start_menu.tscn")
+	SceneTransition.load_scene("res://system/ui/start menu/start_menu.tscn")
