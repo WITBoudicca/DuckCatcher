@@ -61,9 +61,10 @@ func set_ducks_total(amount: int) -> void:
 func return_duck() -> void:
 	ducks_returned += 1
 	SignalBus.ducks_returned_changed.emit(ducks_returned, ducks_total)
+	set_flag("duckling_returned")
 
 	if ducks_returned >= ducks_total:
-		set_flag("duckling_returned")
+		set_flag("all_ducklings_returned")
 #endregion
 
 #region RELEASE BUILD

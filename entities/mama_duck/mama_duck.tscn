@@ -16,7 +16,7 @@ dialogue_file = "res://dialogues/mama_dialogue.json"
 [node name="MamaDuck" parent="." unique_id=2138030897 instance=ExtResource("2_q53lv")]
 transform = Transform3D(-0.35, 0, -3.059797e-08, 0, 0.35, 0, 3.059797e-08, 0, -0.35, 0, 0, 0)
 
-[node name="Skeleton3D" parent="MamaDuck/Armature" parent_id_path=PackedInt32Array(2138030897, 994673462) index="0" unique_id=408059244]
+[node name="Skeleton3D" parent="MamaDuck/Armature" parent_id_path=PackedInt32Array(2138030897, 238489925) index="0" unique_id=787393463]
 bones/0/position = Vector3(7.105429e-15, 1.3588779, -2.8426973e-08)
 bones/0/rotation = Quaternion(0.15190314, -1.1782593e-07, -1.8108263e-08, 0.9883954)
 bones/1/rotation = Quaternion(-0.65980303, 8.9578506e-08, 7.865467e-08, 0.7514386)

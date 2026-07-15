@@ -147,17 +147,21 @@ func can_sprint() -> bool:
 
 #region Interaction
 func try_interact() -> void:
+	var target = interact_ray.get_collider()
+	
 	if held_object != null:
 		drop_held_object()
 		return
 	if held_duck != null:
+		if target.has_method("return_duck"):
+			target.return_duck(held_duck)
+			target.call("interact", self)
 		try_release_duck()
 		return
 	
 	if interact_ray == null or not interact_ray.is_colliding():
 		return
 	
-	var target = interact_ray.get_collider()
 	
 	if target.has_method("interact"):
 		target.call("interact", self)
@@ -283,5 +287,4 @@ func release_duck() -> void:
 	duck.global_transform = world_transform
 	duck.get_node("CollisionShape3D").disabled = false
 	
-	duck.notify_returned_to_mama()
 	#endregion

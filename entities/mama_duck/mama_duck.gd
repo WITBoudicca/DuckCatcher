@@ -19,12 +19,13 @@ func _ready() -> void:
 	
 	player = get_tree().get_first_node_in_group("player")
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	_face_player(self)
-	while DialogueManager.dialogue_playing:
+	if DialogueManager.dialogue_playing:
 		anim.play("MamaDuck_Talk")
-		await anim.animation_finished
-
+	else:
+		anim.play("Netural")
+	
 func interact(_player) -> void:
 	if dialogue.is_empty() or DialogueManager.dialogue_playing:
 		return
@@ -38,9 +39,17 @@ func interact(_player) -> void:
 	
 	if not GameManager.has_flag("met_mama_duck"):
 		GameManager.set_flag("met_mama_duck")
-		
-	if player.held_duck != null:
-		GameManager.return_duck()
+	
+	if GameManager.has_flag("all_ducklings_returned"):
+		print(DialogueManager.dialogue_playing)
+		while DialogueManager.dialogue_playing:
+			await get_tree().process_frame
+		await get_tree().create_timer(0.5).timeout
+		SceneTransition.load_scene("res://system/ending/ending.tscn")
+
+func return_duck(duck : Duckling):
+	duck.notify_returned_to_mama()
+	GameManager.return_duck()
 
 
 #region Marker
@@ -100,10 +109,13 @@ func _load_dialogue() -> void:
 
 func _get_dialogue_lines() -> Array[String]:
 	var raw: Array
-	if GameManager.has_flag("duckling_returned"):
-		raw = dialogue.get("duckling_returned", [])
+	if GameManager.has_flag("all_ducklings_returned"):
+		raw = dialogue.get("all_ducklings_returned", [])
 	elif GameManager.has_flag("met_mama_duck"):
 		raw = dialogue.get("reminder", [[]]).pick_random()
+	elif GameManager.has_flag("duckling_returned"):
+		raw = dialogue.get("duckling_returned", [])
+		GameManager.clear_flag("duckling_returned")
 	else:
 		raw = dialogue.get("first_meet", [])
 	
