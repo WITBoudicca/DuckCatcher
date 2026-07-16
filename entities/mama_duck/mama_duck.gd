@@ -106,11 +106,11 @@ func _get_dialogue_lines() -> Array[String]:
 	var raw: Array
 	if GameManager.has_flag("all_ducklings_returned"):
 		raw = dialogue.get("all_ducklings_returned", [])
-	elif GameManager.has_flag("met_mama_duck"):
-		raw = dialogue.get("reminder", [[]]).pick_random()
 	elif GameManager.has_flag("duckling_returned"):
 		raw = dialogue.get("duckling_returned", [])
 		GameManager.clear_flag("duckling_returned")
+	elif GameManager.has_flag("met_mama_duck"):
+		raw = dialogue.get("reminder", [[]]).pick_random()
 	else:
 		raw = dialogue.get("first_meet", [])
 	

@@ -152,9 +152,10 @@ func try_interact() -> void:
 	if held_object != null:
 		drop_held_object()
 		return
-	if held_duck != null:
-		if target.has_method("return_duck"):
-			target.return_duck(held_duck)
+	if held_duck != null and target != null:
+		if target.has_method("_on_duck_returned"):
+			target._on_duck_returned(held_duck)
+			GameManager.return_duck()
 			target.call("interact", self)
 		try_release_duck()
 		return

@@ -56,22 +56,22 @@ environment = SubResource("Environment_d3eyy")
 fov = 29.5
 near = 0.1
 
-[node name="MamaDuck" parent="." unique_id=54285368 instance=ExtResource("5_w7ry7")]
+[node name="MamaDuck" type="Node3D" parent="." unique_id=54285368 instance=ExtResource("5_w7ry7")]
 transform = Transform3D(0.8362869, 0, 0.5482921, 0, 1, 0, -0.5482921, 0, 0.8362869, -67.122086, -0.3079344, -13.499149)
 
-[node name="Duckling" parent="." unique_id=1455438544 instance=ExtResource("6_2s13j")]
+[node name="Duckling" type="Node3D" parent="." unique_id=1455438544 instance=ExtResource("6_2s13j")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -56.192894, -2.2973237, 0)
 
-[node name="Duckling5" parent="." unique_id=1728406247 instance=ExtResource("6_2s13j")]
+[node name="Duckling5" type="Node3D" parent="." unique_id=1728406247 instance=ExtResource("6_2s13j")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -53.119404, -2.342422, -4.1216555)
 
-[node name="Duckling2" parent="." unique_id=324599602 instance=ExtResource("6_2s13j")]
+[node name="Duckling2" type="Node3D" parent="." unique_id=324599602 instance=ExtResource("6_2s13j")]
 transform = Transform3D(0.3483265, 0, -0.35870412, 0, 0.5, 0, 0.35870412, 0, 0.3483265, -64.69229, -0.13133681, -14.768483)
 
-[node name="Duckling3" parent="." unique_id=520962376 instance=ExtResource("6_2s13j")]
+[node name="Duckling3" type="Node3D" parent="." unique_id=520962376 instance=ExtResource("6_2s13j")]
 transform = Transform3D(-0.11013769, 0, 0.48771885, 0, 0.5, 0, -0.48771885, 0, -0.11013769, -67.99534, -0.5152991, -11.710436)
 
-[node name="Duckling4" parent="." unique_id=1449404757 instance=ExtResource("6_2s13j")]
+[node name="Duckling4" type="Node3D" parent="." unique_id=1449404757 instance=ExtResource("6_2s13j")]
 transform = Transform3D(0.4435604, 0, 0.23076878, 0, 0.5, 0, -0.23076878, 0, 0.4435604, -54.666004, -1.679775, -12.141558)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=861997743]

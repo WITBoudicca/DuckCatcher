@@ -55,9 +55,11 @@ _data = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1538556820]
+layer = 2
 script = ExtResource("1_8lqr7")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=589324697]
+z_index = 1
 offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
