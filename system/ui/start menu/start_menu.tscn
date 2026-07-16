@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1tinje28tswc"]
 
-[ext_resource type="Script" uid="uid://bykaui0ambf6i" path="res://system/start menu/start_menu.gd" id="1_6djo4"]
+[ext_resource type="Script" uid="uid://bykaui0ambf6i" path="res://system/ui/start menu/start_menu.gd" id="1_6djo4"]
 [ext_resource type="PackedScene" uid="uid://dgw65geuecput" path="res://assets/Models/tscn/park.tscn" id="2_0l1cx"]
 [ext_resource type="Texture2D" uid="uid://b7xvjgkwbclne" path="res://assets/sprites/sky_26_2k.png" id="3_edrat"]
 

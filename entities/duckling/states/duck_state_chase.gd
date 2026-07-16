@@ -15,6 +15,10 @@ var path_index: int = 0
 var _tired_timer: float = 0.0
 var _tired_delay: float = 0.0
 
+var sfx_timer = 0.0
+
+var angry_duck_sfx = preload("uid://dpp3567invew8")
+var chase_sfx = preload("uid://bqe3rn4qn16oc")
 
 func enter(_data: Dictionary = {}) -> void:
 	mode = Mode.ESCAPE
@@ -34,9 +38,18 @@ func enter(_data: Dictionary = {}) -> void:
 		_choose_next_target()
 
 
+
 func physics_update(delta: float) -> void:
 	if duck.player == null:
 		return
+	
+	if sfx_timer <= 0.0:
+		AudioManager.play_sound_3d(chase_sfx, duck.global_position, -8.0)
+		print("check")
+		sfx_timer = randi_range(2, 7)
+	else:
+		sfx_timer -= delta
+		print(sfx_timer)
 
 	var player_pos: Vector3 = duck.player.global_position
 
@@ -61,6 +74,7 @@ func on_catch_attempt(by: Node) -> void:
 		duck.change_state(DuckStateCaught.new(duck), {"by": by})
 	else:
 		duck.change_state(DuckStateChaseStart.new(duck))
+		AudioManager.play_sound_3d(angry_duck_sfx, duck.global_position, -8.0)
 
 
 func _update_speed(delta: float) -> void:

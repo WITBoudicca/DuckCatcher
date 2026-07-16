@@ -2,11 +2,11 @@ class_name World
 extends Node3D
 
 ## Music
-const DUCKJAZZ = preload("uid://c062xi7gfc6rc")
+const GROOVINDUCK = preload("uid://dh8qky612b2sn")
 
 @onready var ducklings: Array[Node] = get_tree().get_nodes_in_group("ducklings")
 
 
 func _ready() -> void:
-	AudioManager.play_ambience(DUCKJAZZ, -8)
+	AudioManager.play_ambience(GROOVINDUCK, -8)
 	GameManager.set_ducks_total(ducklings.size())
