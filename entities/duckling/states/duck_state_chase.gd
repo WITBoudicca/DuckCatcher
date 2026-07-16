@@ -45,11 +45,9 @@ func physics_update(delta: float) -> void:
 	
 	if sfx_timer <= 0.0:
 		AudioManager.play_sound_3d(chase_sfx, duck.global_position, -8.0)
-		print("check")
 		sfx_timer = randi_range(2, 7)
 	else:
 		sfx_timer -= delta
-		print(sfx_timer)
 
 	var player_pos: Vector3 = duck.player.global_position
 

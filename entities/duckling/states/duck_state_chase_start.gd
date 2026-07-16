@@ -15,3 +15,4 @@ func enter(_data: Dictionary = {}) -> void:
 
 func _on_anim_finished(_anim_name: StringName) -> void:
 	duck.change_state(DuckStateChase.new(duck))
+	
