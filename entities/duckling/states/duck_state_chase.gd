@@ -15,8 +15,7 @@ var path_index: int = 0
 var _tired_timer: float = 0.0
 var _tired_delay: float = 0.0
 
-var catch_cooldown = 0.0
-var _delta = 0.0
+var catch_cooldown = 2.0
 
 var sfx_timer = 0.0
 
@@ -43,7 +42,6 @@ func enter(_data: Dictionary = {}) -> void:
 
 
 func physics_update(delta: float) -> void:
-	_delta = delta
 	if duck.player == null:
 		return
 	
@@ -52,6 +50,8 @@ func physics_update(delta: float) -> void:
 		sfx_timer = randi_range(2, 7)
 	else:
 		sfx_timer -= delta
+	catch_cooldown -= delta
+	print(catch_cooldown)
 
 	var player_pos: Vector3 = duck.player.global_position
 
@@ -77,9 +77,6 @@ func on_catch_attempt(by: Node) -> void:
 		else:
 			duck.change_state(DuckStateChaseStart.new(duck))
 			AudioManager.play_sound_3d(angry_duck_sfx, duck.global_position, -8.0)
-			catch_cooldown = 2.0
-	else:
-		catch_cooldown -= _delta
 
 
 func _update_speed(delta: float) -> void:
