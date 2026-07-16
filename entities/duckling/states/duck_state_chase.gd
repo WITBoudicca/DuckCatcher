@@ -15,6 +15,9 @@ var path_index: int = 0
 var _tired_timer: float = 0.0
 var _tired_delay: float = 0.0
 
+var catch_cooldown = 0.0
+var _delta = 0.0
+
 var sfx_timer = 0.0
 
 var angry_duck_sfx = preload("uid://dpp3567invew8")
@@ -40,6 +43,7 @@ func enter(_data: Dictionary = {}) -> void:
 
 
 func physics_update(delta: float) -> void:
+	_delta = delta
 	if duck.player == null:
 		return
 	
@@ -64,15 +68,18 @@ func on_catch_attempt(by: Node) -> void:
 	var dist := duck.global_position.distance_to(duck.player.global_position)
 	if dist > duck.catch_radius:
 		return
-
-	duck.catch_count += 1
-	duck.catch_progress.emit(duck.catch_count)
-
-	if duck.catch_count >= Duckling.MAX_CATCHES:
-		duck.change_state(DuckStateCaught.new(duck), {"by": by})
+	
+	if catch_cooldown <= 0:
+		duck.catch_count += 1
+		duck.catch_progress.emit(duck.catch_count)
+		if duck.catch_count >= Duckling.MAX_CATCHES:
+			duck.change_state(DuckStateCaught.new(duck), {"by": by})
+		else:
+			duck.change_state(DuckStateChaseStart.new(duck))
+			AudioManager.play_sound_3d(angry_duck_sfx, duck.global_position, -8.0)
+			catch_cooldown = 2.0
 	else:
-		duck.change_state(DuckStateChaseStart.new(duck))
-		AudioManager.play_sound_3d(angry_duck_sfx, duck.global_position, -8.0)
+		catch_cooldown -= _delta
 
 
 func _update_speed(delta: float) -> void:
