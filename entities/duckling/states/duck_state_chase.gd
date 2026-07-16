@@ -51,7 +51,6 @@ func physics_update(delta: float) -> void:
 	else:
 		sfx_timer -= delta
 	catch_cooldown -= delta
-	print(catch_cooldown)
 
 	var player_pos: Vector3 = duck.player.global_position
 
