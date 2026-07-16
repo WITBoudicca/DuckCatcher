@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqe3rn4qn16oc"
+path="res://.godot/imported/SFX Duck Ruffle 1.mp3-e6f943b2d1b2fd076eb2920f0e73e836.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/SFX Duck Ruffle 1.mp3"
+dest_files=["res://.godot/imported/SFX Duck Ruffle 1.mp3-e6f943b2d1b2fd076eb2920f0e73e836.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

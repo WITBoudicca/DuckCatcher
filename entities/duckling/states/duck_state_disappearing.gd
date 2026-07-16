@@ -1,11 +1,13 @@
 class_name DuckStateDisappearing
 extends DuckState
 
+const GROOVINDUCK = preload("uid://dh8qky612b2sn")
 
 func enter(_data: Dictionary = {}) -> void:
 	duck.velocity = Vector3.ZERO
 	duck.gave_up.emit()  # TODO hook: stop chase music, spawn disappear particles
-
+	AudioManager.play_ambience(GROOVINDUCK, -8)
+	
 	# TODO: disappear animation here instead of hiding the mesh.
 	duck.visible = false
 

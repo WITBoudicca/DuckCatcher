@@ -7,6 +7,7 @@ var dialogue: Dictionary = {}
 var available_markers: Array[Marker3D] = []
 var player
 
+@export var happy_duck_sfx: Array[AudioStream]
 @onready var anim = $MamaDuck/AnimationPlayer
 
 
@@ -64,6 +65,7 @@ func _on_duck_returned(duck: Node) -> void:
 	if marker != null:
 		duck.global_transform = marker.global_transform
 		duck.anim.play("Duckling_Neutral")
+		AudioManager.play_sound_3d(happy_duck_sfx.pick_random(), global_position, -8.0)
 	
 	_face_player(duck)
 	

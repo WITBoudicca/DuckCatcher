@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cwnp1fxqkuv3t" path="res://entities/mama_duck/mama_duck.gd" id="1_q53lv"]
 [ext_resource type="PackedScene" uid="uid://3rlfjcu7rlk8" path="res://assets/Models/MamaDuck.blend" id="2_q53lv"]
+[ext_resource type="AudioStream" uid="uid://c2tyeietr4wlo" path="res://assets/audio/SFX Happy Duck 1.mp3" id="2_sje5o"]
+[ext_resource type="AudioStream" uid="uid://0w55qk6bmjq" path="res://assets/audio/SFX Happy Duck 2.mp3" id="3_7cgcf"]
+[ext_resource type="AudioStream" uid="uid://cvobll64sq7ee" path="res://assets/audio/SFX Happy Duck 3.mp3" id="4_muce8"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_q53lv"]
 points = PackedVector3Array(0.33010256, 4.227745, 0.72573787, -0.24135077, 0.5092838, -0.84453213, -0.4540898, 0.59025747, -0.8455427, 0.27125314, 2.7393787, -3.3068168, 1.099232, 1.4597455, 0.066400304, -1.0035772, 1.8163418, 0.47716826, -0.62783504, 4.237812, 0.06511402, 0.11714564, 1.3607688, 1.2498589, -0.32806316, 2.7393787, -3.2321563, 0.4959683, 4.38819, -0.009546399, -1.0588651, 1.5501022, -0.5768773, 0.672851, 0.76756066, -0.8496892, -0.31292966, 4.089419, 0.80264616, -0.026799288, 0.7160195, 0.73961407, 0.12136719, 2.2151117, -3.3068168, -0.80837303, 1.2349211, 0.7902155, 0.9972515, 1.8331304, -0.85444033, 0.827644, 1.4467902, 0.8634801, -0.2530065, 4.462968, -0.15980655, 0.64585423, 4.237812, 0.13977456, -0.64229345, 1.0056905, -1.3327177, 0.61295456, 0.73786724, 0.29161498, -0.5277343, 1.583895, 1.1608231, -0.87372154, 0.89020646, -0.069897585, 0.25802404, 0.5931901, -1.1294441, 0.7991171, 1.2090153, -1.1958815, -1.0478985, 1.8328648, -0.5818239, -0.3063289, 0.76188433, -1.4090998, 0.19619644, 4.5381565, -0.084676504, 0.32929552, 1.7314806, 1.2205263, 0.34608236, 2.7393787, -3.1570263, -0.098727494, 0.4981467, -0.05064441)
@@ -12,32 +15,10 @@ collision_mask = 11
 mass = 5.0
 script = ExtResource("1_q53lv")
 dialogue_file = "res://dialogues/mama_dialogue.json"
+happy_duck_sfx = Array[AudioStream]([ExtResource("2_sje5o"), ExtResource("3_7cgcf"), ExtResource("4_muce8")])
 
 [node name="MamaDuck" parent="." unique_id=2138030897 instance=ExtResource("2_q53lv")]
 transform = Transform3D(-0.35, 0, -3.059797e-08, 0, 0.35, 0, 3.059797e-08, 0, -0.35, 0, 0, 0)
-
-[node name="Skeleton3D" parent="MamaDuck/Armature" parent_id_path=PackedInt32Array(2138030897, 1354220407) index="0" unique_id=1664959416]
-bones/0/position = Vector3(7.105429e-15, 1.3588779, -2.8426973e-08)
-bones/0/rotation = Quaternion(0.15190314, -1.1782593e-07, -1.8108263e-08, 0.9883954)
-bones/1/rotation = Quaternion(-0.65980303, 8.9578506e-08, 7.865467e-08, 0.7514386)
-bones/2/rotation = Quaternion(-0.8369821, -1.2357193e-08, 1.804717e-08, 0.5472305)
-bones/3/rotation = Quaternion(0.029362136, -4.3274318e-16, 1.8771584e-15, 0.99956894)
-bones/4/rotation = Quaternion(-0.7308893, -2.9832847e-08, 3.1948193e-08, 0.6824961)
-bones/5/rotation = Quaternion(-0.8369821, -1.2357193e-08, 1.804717e-08, 0.5472305)
-bones/6/rotation = Quaternion(0.029362136, -4.3274318e-16, 1.8771584e-15, 0.99956894)
-bones/7/rotation = Quaternion(-0.7308893, 2.9832847e-08, -3.1948193e-08, 0.6824961)
-bones/8/rotation = Quaternion(-0.004888591, 0.18966757, -0.036783505, 0.98114693)
-bones/9/rotation = Quaternion(-0.015525146, -7.6281713e-06, 0.031671584, 0.9993778)
-bones/10/rotation = Quaternion(-0.004888598, -0.18966757, 0.03678351, 0.98114693)
-bones/11/rotation = Quaternion(-0.015525146, 7.6281713e-06, -0.031671584, 0.9993778)
-bones/12/rotation = Quaternion(-0.15190312, 3.0893555e-14, 3.621653e-08, 0.9883954)
-bones/14/rotation = Quaternion(0.6952283, 2.5536519e-15, -1.6575532e-07, 0.71878904)
-bones/15/position = Vector3(0.4776498, 0.0066961944, -0.07899533)
-bones/16/position = Vector3(0.4776498, 0.36234605, 0.093350455)
-bones/17/position = Vector3(0.984494, 2.2967005, -1.0429479)
-bones/18/position = Vector3(-0.4776498, 0.0066961944, -0.07899533)
-bones/19/position = Vector3(-0.4776498, 0.36234605, 0.093350455)
-bones/20/position = Vector3(-0.984494, 2.2967005, -1.0429479)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=556769901]
 transform = Transform3D(-0.3965623, 0, -3.4668577e-08, 0, 0.3965623, 0, 3.4668577e-08, 0, -0.3965623, 0, 0, 0)

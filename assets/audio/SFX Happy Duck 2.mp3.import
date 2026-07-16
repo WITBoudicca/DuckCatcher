@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0w55qk6bmjq"
+path="res://.godot/imported/SFX Happy Duck 2.mp3-5e19f0cc7a93ba7573ae398e01032f05.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/SFX Happy Duck 2.mp3"
+dest_files=["res://.godot/imported/SFX Happy Duck 2.mp3-5e19f0cc7a93ba7573ae398e01032f05.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
