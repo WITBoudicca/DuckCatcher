@@ -24,7 +24,7 @@ sky_material = SubResource("PanoramaSkyMaterial_6ptxm")
 [sub_resource type="Environment" id="Environment_ggosa"]
 background_mode = 2
 sky = SubResource("Sky_ocfjn")
-sky_rotation = Vector3(0, -0.7452556, 0)
+sky_rotation = Vector3(0, -2.586578, 0)
 tonemap_mode = 3
 glow_enabled = true
 glow_normalized = true

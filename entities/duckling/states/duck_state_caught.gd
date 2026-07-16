@@ -4,6 +4,7 @@ extends DuckState
 const GROOVINDUCK = preload("uid://dh8qky612b2sn")
 var caught_duck_sfx = [preload("uid://c67lci4ui3a2c"), preload("uid://q6hg5csfdhty"), preload("uid://dt2cdlaagql7l")]
 
+
 func enter(data: Dictionary = {}) -> void:
 	duck.velocity = Vector3.ZERO
 	duck.anim.play("Duckling_Tag")
