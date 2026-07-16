@@ -91,10 +91,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.487438, 0.81257904, 1.3138
 [node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=651153145]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.626596, 0.93024576, 2.0936432)
 
+[node name="Mark06" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=682920995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.336065, 0.93024576, -10.496845)
+
+[node name="Mark07" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=211046386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.258623, 0.93024576, 6.998619)
+
 [node name="Duck2" type="Node3D" parent="Entities/DucklingEntity" unique_id=1552036207]
 
 [node name="Duckling" parent="Entities/DucklingEntity/Duck2" unique_id=366160257 node_paths=PackedStringArray("start_location", "initial_wait_location", "paths_container") instance=ExtResource("2_4717r")]
-transform = Transform3D(-0.47982544, 0, 0.87736404, 0, 1, 0, -0.87736404, 0, -0.47982544, 22.041792, 0.5619204, -19.119242)
+transform = Transform3D(-0.47982544, 0, 0.87736404, 0, 1, 0, -0.87736404, 0, -0.47982544, 22.368078, 0.5619204, -18.870497)
 start_location = NodePath("../Mark00")
 initial_wait_location = NodePath("../Mark01")
 paths_container = NodePath("../Paths1")
@@ -127,7 +133,7 @@ point_a = NodePath("../../Mark05")
 point_b = NodePath("../../Mark00")
 
 [node name="Mark00" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=1663445398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.041792, 0.5619204, -19.119242)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.592459, 0.5619204, -18.751802)
 
 [node name="Mark01" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=1262487061]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.199316, 0.93024576, 24.692787)
@@ -143,6 +149,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.698814, 0.93024576, -16.3
 
 [node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=1665087848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.333979, 0.93024576, -19.80541)
+
+[node name="Mark06" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=1641557623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.526293, 0.5619204, -18.450573)
 
 [node name="Duck3" type="Node3D" parent="Entities/DucklingEntity" unique_id=807264182]
 
@@ -197,6 +206,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3746295, 0.93024576, -15.2
 [node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck3" unique_id=1727818152]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9617996, 0.9302448, -17.870962)
 
+[node name="Mark06" type="Marker3D" parent="Entities/DucklingEntity/Duck3" unique_id=958455375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.465548, 0.9302448, -17.870962)
+
+[node name="Mark07" type="Marker3D" parent="Entities/DucklingEntity/Duck3" unique_id=922557801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.821587, 0.9302448, -8.34655)
+
 [node name="Duck4" type="Node3D" parent="Entities/DucklingEntity" unique_id=2126868734]
 
 [node name="Duckling" parent="Entities/DucklingEntity/Duck4" unique_id=1990286889 node_paths=PackedStringArray("start_location", "initial_wait_location", "paths_container") instance=ExtResource("2_4717r")]
@@ -249,6 +264,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.39213, 0.93024385, -12.93
 
 [node name="Mark05" type="Marker3D" parent="Entities/DucklingEntity/Duck4" unique_id=1371902470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.74337, 0.93024576, -20.599632)
+
+[node name="Mark06" type="Marker3D" parent="Entities/DucklingEntity/Duck4" unique_id=1645281042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.281666, 0.93024576, -20.599632)
 
 [node name="Duck5" type="Node3D" parent="Entities/DucklingEntity" unique_id=1708576102]
 
