@@ -193,7 +193,6 @@ func _raycast_call(method_name: String) -> void:
 #endregion
 
 #region Hover / Highlight
-
 func _update_hover() -> void:
 	if interact_ray == null:
 		return

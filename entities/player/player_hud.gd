@@ -14,11 +14,11 @@ func _ready() -> void:
 	SignalBus.hovered_pickable_changed.connect(_on_hovered_pickable_changed)
 	SignalBus.ducks_returned_changed.connect(_on_ducks_returned_changed)
 
-	duck_counter.text = "%d / %d" % [GameManager.ducks_returned, GameManager.ducks_total]
+	duck_counter.text = "Ducks returned: %d / %d" % [GameManager.ducks_returned, GameManager.ducks_total]
 
 
 func _on_ducks_returned_changed(current: int, total: int) -> void:
-	duck_counter.text = "%d / %d" % [current, total]
+	duck_counter.text = "Ducks returned: %d / %d" % [current, total]
 
 func _on_hovered_pickable_changed(target: Node) -> void:
 	if target == null:

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://1tinje28tswc"]
 
-[ext_resource type="Script" uid="uid://bykaui0ambf6i" path="res://system/start menu/start_menu.gd" id="1_6djo4"]
+[ext_resource type="Script" uid="uid://bykaui0ambf6i" path="res://system/ui/start menu/start_menu.gd" id="1_6djo4"]
 [ext_resource type="PackedScene" uid="uid://dgw65geuecput" path="res://assets/Models/tscn/park.tscn" id="2_0l1cx"]
 [ext_resource type="Texture2D" uid="uid://b7xvjgkwbclne" path="res://assets/sprites/sky_26_2k.png" id="3_edrat"]
+[ext_resource type="Script" uid="uid://fuyhg4xnyp4o" path="res://world/environment.gd" id="4_kueca"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4t5ln"]
 panorama = ExtResource("3_edrat")
@@ -13,6 +14,22 @@ sky_material = SubResource("PanoramaSkyMaterial_4t5ln")
 [sub_resource type="Environment" id="Environment_4t5ln"]
 background_mode = 2
 sky = SubResource("Sky_ror5d")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6ptxm"]
+panorama = ExtResource("3_edrat")
+
+[sub_resource type="Sky" id="Sky_ocfjn"]
+sky_material = SubResource("PanoramaSkyMaterial_6ptxm")
+
+[sub_resource type="Environment" id="Environment_ggosa"]
+background_mode = 2
+sky = SubResource("Sky_ocfjn")
+sky_rotation = Vector3(0, -0.7452556, 0)
+tonemap_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_strength = 1.1
+glow_bloom = 0.5
 
 [node name="Start Menu" type="Control" unique_id=389511589]
 layout_mode = 3
@@ -53,7 +70,13 @@ environment = SubResource("Environment_4t5ln")
 fov = 41.1
 near = 0.1
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D" unique_id=548821917]
+[node name="Environment" type="Node3D" parent="Node3D" unique_id=535124574]
+script = ExtResource("4_kueca")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D/Environment" unique_id=187801842]
+environment = SubResource("Environment_ggosa")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D/Environment/WorldEnvironment" unique_id=1498375014]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 25.347557, 22.855164, -0.073916435)
 shadow_enabled = true
 

@@ -206,6 +206,7 @@ grow_horizontal = 2
 
 [node name="Instruction" type="Label" parent="PlayerHud/Labels" unique_id=1902128685]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 offset_left = 16.0
 offset_top = 16.0
@@ -224,6 +225,7 @@ offset_top = 16.0
 offset_right = -16.0
 offset_bottom = 39.0
 grow_horizontal = 0
+theme_override_font_sizes/font_size = 18
 text = "Ducks left : 50"
 
 [node name="InteractionPrompt" type="Label" parent="PlayerHud/Labels" unique_id=638094281]
