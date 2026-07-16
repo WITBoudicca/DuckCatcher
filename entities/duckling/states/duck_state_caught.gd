@@ -13,7 +13,7 @@ func enter(data: Dictionary = {}) -> void:
 	if by and by.has_method("hold_duck"):
 		by.hold_duck(duck)
 		AudioManager.play_sound_3d(caught_duck_sfx.pick_random(), duck.global_position, -8.0)
-		duck.anim.play("Neutral")
+		duck.anim.play("Duckling_Neutral")
 	AudioManager.play_ambience(GROOVINDUCK, -8)
 	duck.fully_caught.emit()
 
