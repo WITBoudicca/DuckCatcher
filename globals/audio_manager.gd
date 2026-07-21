@@ -3,7 +3,7 @@ extends Node
 
 enum REVERB_TYPE { NONE, SMALL, MEDIUM, LARGE }
 
-const POOL_SIZE = 8
+const POOL_SIZE = 3
 
 @export var ui_focus_audio: AudioStream
 @export var ui_hover_audio: AudioStream

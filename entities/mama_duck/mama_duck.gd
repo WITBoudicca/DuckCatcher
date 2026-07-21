@@ -44,7 +44,7 @@ func interact(_player) -> void:
 	if GameManager.has_flag("all_ducklings_returned"):
 		while DialogueManager.dialogue_playing:
 			await get_tree().process_frame
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1.0).timeout
 		SceneTransition.load_scene("res://system/ending/ending.tscn")
 
 

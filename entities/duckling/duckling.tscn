@@ -19,7 +19,7 @@ escape_speed = 12.0
 [node name="Duckling" parent="." unique_id=1287765653 instance=ExtResource("2_8n0gj")]
 transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Duckling/Armature" parent_id_path=PackedInt32Array(1287765653, 2060028532) index="0" unique_id=1168452981]
+[node name="Skeleton3D" parent="Duckling/Armature" parent_id_path=PackedInt32Array(1287765653, 1087872316) index="0" unique_id=181849082]
 bones/0/position = Vector3(7.105429e-15, 1.3588779, -2.8426973e-08)
 bones/0/rotation = Quaternion(-0.010994851, 0.014917921, -0.008042427, 0.9997959)
 bones/1/rotation = Quaternion(-0.65980303, 8.927125e-08, 7.8304765e-08, 0.7514386)
@@ -43,7 +43,7 @@ bones/18/position = Vector3(-1.2526577, 0.30066463, -0.078995295)
 bones/19/position = Vector3(-1.3862797, 0.6028657, 0.093350485)
 bones/20/position = Vector3(-2.6146832, 3.374585, 0.45361948)
 
-[node name="AnimationPlayer" parent="Duckling" index="1" unique_id=1900862211]
+[node name="AnimationPlayer" parent="Duckling" index="1" unique_id=2031185626]
 autoplay = &"Duckling_Hide"
 playback_default_blend_time = 1.0
 

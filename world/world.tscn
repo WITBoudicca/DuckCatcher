@@ -74,7 +74,7 @@ point_a = NodePath("../../Mark05")
 point_b = NodePath("../../Mark00")
 
 [node name="Mark00" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=1035313601]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.610613, 0.93024576, 4.620396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.682383, 0.93024576, 6.1471577)
 
 [node name="Mark01" type="Marker3D" parent="Entities/DucklingEntity/Duck1" unique_id=65630759]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.226637, 0.15623367, 13.017253)
@@ -130,13 +130,18 @@ point_b = NodePath("../../Mark05")
 [node name="PathE" type="Node" parent="Entities/DucklingEntity/Duck2/Paths1" unique_id=2091787232]
 script = ExtResource("6_duckpath")
 point_a = NodePath("../../Mark05")
+point_b = NodePath("../../Mark06")
+
+[node name="PathF" type="Node" parent="Entities/DucklingEntity/Duck2/Paths1" unique_id=2096871544]
+script = ExtResource("6_duckpath")
+point_a = NodePath("../../Mark06")
 point_b = NodePath("../../Mark00")
 
 [node name="Mark00" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=1663445398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.592459, 0.5619204, -18.751802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.548445, 0.5619204, -18.88897)
 
 [node name="Mark01" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=1262487061]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.199316, 0.93024576, 24.692787)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.28256, 0.93024576, 18.997864)
 
 [node name="Mark02" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=959824287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.445522, 0.93024576, 22.77546)
@@ -151,7 +156,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.698814, 0.93024576, -16.3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.333979, 0.93024576, -19.80541)
 
 [node name="Mark06" type="Marker3D" parent="Entities/DucklingEntity/Duck2" unique_id=1641557623]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.526293, 0.5619204, -18.450573)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6312275, 0.5619204, -19.634035)
 
 [node name="Duck3" type="Node3D" parent="Entities/DucklingEntity" unique_id=807264182]
 
@@ -360,6 +365,7 @@ environment = SubResource("Environment_4717r")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment" unique_id=1884841855]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 25.347557, 22.855164, -0.073916435)
+light_energy = 0.3
 shadow_enabled = true
 
 [node name="PauseMenu" parent="." unique_id=1032203355 instance=ExtResource("13_ocfjn")]
